@@ -355,6 +355,17 @@ footer p{color:var(--soft)}
   .hero > img{animation:none}
   .reveal{transition-duration:.4s}
 }
+
+/* ---------- Giảm hiệu ứng: chỉ điểm nhẹ, tinh tế ---------- */
+.sheen,.bokeh-layer,.glow-layer,.frame .shimmer{display:none!important}
+.deco.bloom,.deco.leaf,.deco.gem,.deco.spark,.deco.branch.mid{display:none!important}
+.deco.branch{opacity:.28;animation-duration:14s}
+.petal i{opacity:.6}
+.star{filter:none}
+.hero-sparks svg:nth-child(n+4){display:none}
+.hero h1 .heart{animation-duration:3.2s}
+.cal-grid .big::before{animation:none}
+.gate .g3{animation-duration:3.2s}
 </style>
 </head>
 <body>
@@ -454,12 +465,12 @@ footer p{color:var(--soft)}
 /* Cánh hoa rơi — chạy ngay khi trang mở, không chờ tải xong ảnh */
 (function(){
   var box=document.getElementById('petals'), calm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var n = calm ? 8 : (innerWidth<600 ? 14 : 22);
+  var n = calm ? 4 : (innerWidth<600 ? 6 : 9);
   for(var i=0;i<n;i++){
     var p=document.createElement('span'), inner=document.createElement('i');
     p.className='petal';
     p.style.left=(Math.random()*100)+'vw';
-    p.style.animationDuration=((calm?18:10)+Math.random()*10)+'s';
+    p.style.animationDuration=((calm?26:16)+Math.random()*12)+'s';
     p.style.animationDelay=(-Math.random()*20)+'s';
     inner.style.setProperty('--s',(10+Math.random()*10)+'px');
     inner.style.animationDuration=(2+Math.random()*2.5)+'s';
@@ -473,7 +484,7 @@ footer p{color:var(--soft)}
 (function(){
   var box=document.getElementById('starsLayer'), calm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
   if(calm) return;
-  var n = innerWidth<600 ? 22 : 36;
+  var n = innerWidth<600 ? 5 : 8;
   for(var i=0;i<n;i++){
     var s=document.createElementNS('http://www.w3.org/2000/svg','svg');
     s.setAttribute('viewBox','-10 -10 20 20'); s.setAttribute('class','star');
