@@ -27,7 +27,7 @@
 [data-tone="gold"]   {--t-bg:#F3E6CC;--t-ink:#3A2912;--t-accent:#A2742A;--t-soft:#7A6246;--t-card:#FFFBF1;--t-line:rgba(162,116,42,.45);--t-petal:#E8C27A;--t-mat:#FFFCF4}
 [data-tone="sunset"] {--t-bg:#F6DDCD;--t-ink:#48271F;--t-accent:#C0583A;--t-soft:#855C50;--t-card:#FFF8F3;--t-line:rgba(192,88,58,.35);--t-petal:#F4A38C;--t-mat:#FFFAF6}
 [data-tone="white"]  {--t-bg:#F3F2F0;--t-ink:#2A2728;--t-accent:#B9748A;--t-soft:#706A6C;--t-card:#FFFFFF;--t-line:rgba(185,116,138,.35);--t-petal:#F2C3CF;--t-mat:#FFFFFF}
-[data-tone="soldier"]{--t-bg:#ECDFC6;--t-ink:#1F2E1C;--t-accent:#34502D;--t-soft:#5E6650;--t-card:#FBF6EC;--t-line:rgba(190,150,66,.6);--t-petal:#D8B568;--t-mat:#FFFBF2}
+[data-tone="garden"]{--t-bg:#ECDFC6;--t-ink:#1F2E1C;--t-accent:#34502D;--t-soft:#5E6650;--t-card:#FBF6EC;--t-line:rgba(190,150,66,.6);--t-petal:#D8B568;--t-mat:#FFFBF2}
 [data-tone="red"]    {--t-bg:#661B17;--t-ink:#F7E7CB;--t-accent:#E3BC66;--t-soft:rgba(247,231,203,.78);--t-card:#FFF8EA;--t-line:rgba(227,188,102,.55);--t-petal:#E6BE62;--t-mat:#FFF6E4}
 
 *,*::before,*::after{box-sizing:inherit}
@@ -360,6 +360,17 @@ footer p{color:var(--soft)}
   .hero > img{animation:none}
   .reveal{transition-duration:.4s}
 }
+
+/* ---------- Giảm hiệu ứng: chỉ điểm nhẹ, tinh tế ---------- */
+.sheen,.bokeh-layer,.glow-layer,.frame .shimmer{display:none!important}
+.deco.bloom,.deco.leaf,.deco.gem,.deco.spark,.deco.branch.mid{display:none!important}
+.deco.branch{opacity:.28;animation-duration:14s}
+.petal i{opacity:.6}
+.star{filter:none}
+.hero-sparks svg:nth-child(n+4){display:none}
+.hero h1 .heart{animation-duration:3.2s}
+.cal-grid .big::before{animation:none}
+.gate .g3{animation-duration:3.2s}
 </style>
 </head>
 <body>
@@ -460,12 +471,12 @@ footer p{color:var(--soft)}
 /* Cánh hoa rơi — chạy ngay khi trang mở, không chờ tải xong ảnh */
 (function(){
   var box=document.getElementById('petals'), calm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var n = calm ? 8 : (innerWidth<600 ? 14 : 22);
+  var n = calm ? 4 : (innerWidth<600 ? 6 : 9);
   for(var i=0;i<n;i++){
     var p=document.createElement('span'), inner=document.createElement('i');
     p.className='petal';
     p.style.left=(Math.random()*100)+'vw';
-    p.style.animationDuration=((calm?18:10)+Math.random()*10)+'s';
+    p.style.animationDuration=((calm?26:16)+Math.random()*12)+'s';
     p.style.animationDelay=(-Math.random()*20)+'s';
     inner.style.setProperty('--s',(10+Math.random()*10)+'px');
     inner.style.animationDuration=(2+Math.random()*2.5)+'s';
@@ -478,7 +489,7 @@ footer p{color:var(--soft)}
 /* Sao lấp lánh rải khắp màn hình — nhẹ nhàng, không cần ảnh ngoài */
 (function(){
   var box=document.getElementById('starsLayer');
-  var n = innerWidth<600 ? 40 : 60;
+  var n = innerWidth<600 ? 7 : 10;
   for(var i=0;i<n;i++){
     var s=document.createElementNS('http://www.w3.org/2000/svg','svg');
     s.setAttribute('viewBox','-10 -10 20 20'); s.setAttribute('class','star');
@@ -533,7 +544,7 @@ footer p{color:var(--soft)}
     <div class="wrap narrow reveal">
       <svg class="sprig" viewBox="0 0 240 44"><use href="#sprig"/></svg>
       <h2 class="chap-title">Chuyện của chúng mình</h2>
-      <p class="lede">Chẳng ồn ào, chẳng điều gì to&nbsp;tát,<br>Chỉ là hai người tìm thấy nhau&nbsp;thôi.<br>Rồi muốn nắm tay đi cùng năm&nbsp;tháng,<br>Mời bạn cùng xem những chuyện của&nbsp;đôi.</p>
+      <p class="lede">Chỉ có thuyền mới&nbsp;hiểu<br>Biển mênh mông nhường&nbsp;nào<br>Chỉ có biển mới&nbsp;biết<br>Thuyền đi đâu, về&nbsp;đâu<br><em style="font-size:.8em;opacity:.7">— Xuân Quỳnh</em></p>
     </div>
   </section>
 
@@ -544,7 +555,7 @@ footer p{color:var(--soft)}
         <svg class="sprig" viewBox="0 0 240 44"><use href="#sprig"/></svg>
         <span class="chap-no">Chương một</span>
         <h2 class="chap-title">Khu vườn nhỏ</h2>
-        <p class="lede">Chuyện mình bắt đầu bằng khu vườn&nbsp;nhỏ,<br>Có nắng xuyên cành, có gió trên&nbsp;vai.<br>Tiếng nước róc rách hoà vào hơi&nbsp;thở,<br>Một bàn tay khẽ nắm một bàn&nbsp;tay.</p>
+        <p class="lede">Con sóng dưới lòng&nbsp;sâu<br>Con sóng trên mặt&nbsp;nước<br>Ôi con sóng nhớ&nbsp;bờ<br>Ngày đêm không ngủ&nbsp;được<br><em style="font-size:.8em;opacity:.7">— Xuân Quỳnh</em></p>
       </div>
       <div class="duo">
         <figure class="ph r tilt-l reveal"><img src="thiep-cuoi-viet-anh-lan-vi/images/vuon-1.jpg" alt="Việt Anh hôn má Lan Vi giữa hàng cây xanh" loading="lazy"></figure>
@@ -563,7 +574,7 @@ footer p{color:var(--soft)}
       <svg class="sprig" viewBox="0 0 240 44"><use href="#sprig"/></svg>
       <span class="chap-no">Chương hai</span>
       <h2 class="chap-title">Những lá thư</h2>
-      <p class="lede">Có những lời khó nói thành&nbsp;câu,<br>Nên gửi nhau qua từng trang&nbsp;giấy.<br>Đọc thư xong chỉ biết nhìn&nbsp;nhau,<br>Rồi bật cười, ngại ngùng như&nbsp;vậy.</p>
+      <p class="lede">Lòng em nhớ đến&nbsp;anh<br>Cả trong mơ còn&nbsp;thức<br>Nơi nào em cũng&nbsp;nghĩ<br>Hướng về anh một&nbsp;phương<br><em style="font-size:.8em;opacity:.7">— Xuân Quỳnh</em></p>
     </div>
     <div class="wide reveal">
       <figure class="ph r"><img src="thiep-cuoi-viet-anh-lan-vi/images/nang-1.jpg" alt="Hai bạn đứng hai bên đài phun nước đọc thư cho nhau" loading="lazy"></figure>
@@ -573,7 +584,7 @@ footer p{color:var(--soft)}
         <figure class="ph arch reveal"><img src="thiep-cuoi-viet-anh-lan-vi/images/nang-3.jpg" alt="Hai bạn chung một tấm voan trong nắng chiều" loading="lazy"></figure>
         <div class="text reveal">
           <p class="quote">“Từ hôm nay, mọi buổi chiều đều có anh.”</p>
-          <p class="caption" style="font-style:normal;font-family:inherit">Một tấm voan mỏng, khép cả đất&nbsp;trời,<br>Chỉ còn hai đứa và nắng vàng nơi&nbsp;nơi.</p>
+          <p class="caption" style="font-style:normal;font-family:inherit">Đời dài, có em có&nbsp;anh,<br>Nắng mưa gì cũng thành&nbsp;lành.</p>
           <svg class="sprig flip" viewBox="0 0 240 44"><use href="#sprig"/></svg>
         </div>
       </div>
@@ -589,7 +600,7 @@ footer p{color:var(--soft)}
       <svg class="sprig" viewBox="0 0 240 44"><use href="#sprig"/></svg>
       <span class="chap-no">Chương ba</span>
       <h2 class="chap-title">Hoàng hôn bên hồ</h2>
-      <p class="lede">Đi bên nhau đến khi trời tắt&nbsp;nắng,<br>Rồi lại đi, chẳng vội để chân&nbsp;dừng.<br>Chiều như thế, chúng mình thường vẫn&nbsp;đợi,<br>Chỉ cần nhau là đủ ấm vô&nbsp;cùng.</p>
+      <p class="lede">Cuộc đời tuy dài&nbsp;thế<br>Năm tháng vẫn đi&nbsp;qua<br>Như biển kia dẫu&nbsp;rộng<br>Mây vẫn bay về&nbsp;xa<br><em style="font-size:.8em;opacity:.7">— Xuân Quỳnh</em></p>
     </div>
     <div class="wide reveal">
       <figure class="ph r"><img src="thiep-cuoi-viet-anh-lan-vi/images/hoang-hon-2.jpg" alt="Hai bạn nắm tay đi dạo bên hồ lúc hoàng hôn" loading="lazy"></figure>
@@ -603,7 +614,7 @@ footer p{color:var(--soft)}
         <svg class="sprig" viewBox="0 0 240 44"><use href="#sprig"/></svg>
         <span class="chap-no">Chương bốn</span>
         <h2 class="chap-title">Lời hứa</h2>
-        <p class="lede">Một bộ vest, một chiếc váy trắng&nbsp;tinh,<br>Cùng lời hứa sẽ không rời nửa&nbsp;bước.<br>Ngày bình yên hay ngày đầy sóng&nbsp;gió,<br>Vẫn có nhau đi trọn một hành&nbsp;trình.</p>
+        <p class="lede">Làm sao được tan&nbsp;ra<br>Thành trăm con sóng&nbsp;nhỏ<br>Giữa biển lớn tình&nbsp;yêu<br>Để ngàn năm còn&nbsp;vỗ<br><em style="font-size:.8em;opacity:.7">— Xuân Quỳnh</em></p>
       </div>
       <div class="duo even">
         <figure class="ph r tilt-l reveal"><img src="thiep-cuoi-viet-anh-lan-vi/images/trang-1.jpg" alt="Ảnh cưới trong studio, Lan Vi ngồi, Việt Anh đứng phía sau" loading="lazy"></figure>
@@ -612,19 +623,19 @@ footer p{color:var(--soft)}
     </div>
   </section>
 
-  <!-- ===================== CHƯƠNG 5 · ANH LÍNH ===================== -->
-  <section class="chapter" data-tone="soldier">
+  <!-- ===================== CHƯƠNG 5 · ĐỒNG LÒNG ===================== -->
+  <section class="chapter" data-tone="garden">
     <div class="wrap">
       <div class="narrow reveal">
         <svg class="sprig" viewBox="0 0 240 44"><use href="#sprig"/></svg>
         <span class="chap-no">Chương năm</span>
-        <h2 class="chap-title">Anh lính của em</h2>
-        <p class="lede">Anh khoác vai màu áo xanh biên&nbsp;ải,<br>Em ở nhà làm hậu phương vững&nbsp;tin.<br>Có những ngày cách xa ngàn dặm&nbsp;mãi,<br>Nhưng chưa khi nào xa cách trong&nbsp;tim.</p>
+        <h2 class="chap-title">Đồng lòng gắn bó</h2>
+        <p class="lede">Một cây làm chẳng nên&nbsp;non,<br>Ba cây chụm lại nên hòn núi&nbsp;cao.<br>Thuận vợ thuận chồng đồng&nbsp;lòng,<br>Tát cạn biển Đông, hạnh phúc đủ&nbsp;đầy.<br><em style="font-size:.8em;opacity:.7">— Ca dao</em></p>
       </div>
       <div class="trio">
         <figure class="ph arch reveal"><img src="thiep-cuoi-viet-anh-lan-vi/images/nguoi-linh-1.jpg" alt="Hai bạn khoác tay nhau, Việt Anh mặc vest đen" loading="lazy"></figure>
-        <figure class="ph r reveal"><img src="thiep-cuoi-viet-anh-lan-vi/images/nguoi-linh-2.jpg" alt="Việt Anh trong quân phục nhìn Lan Vi mỉm cười" loading="lazy"></figure>
-        <figure class="ph r reveal"><img src="thiep-cuoi-viet-anh-lan-vi/images/nguoi-linh-3.jpg" alt="Việt Anh trong quân phục khoác tay Lan Vi" loading="lazy"></figure>
+        <figure class="ph r reveal"><img src="thiep-cuoi-viet-anh-lan-vi/images/nguoi-linh-2.jpg" alt="Việt Anh nhìn Lan Vi mỉm cười" loading="lazy"></figure>
+        <figure class="ph r reveal"><img src="thiep-cuoi-viet-anh-lan-vi/images/nguoi-linh-3.jpg" alt="Việt Anh khoác tay Lan Vi" loading="lazy"></figure>
       </div>
     </div>
   </section>
@@ -636,7 +647,7 @@ footer p{color:var(--soft)}
         <svg class="sprig" viewBox="0 0 240 44"><use href="#sprig"/></svg>
         <span class="chap-no">Chương sáu</span>
         <h2 class="chap-title">Về chung một nhà</h2>
-        <p class="lede">Trang mới này, xin viết cùng cả&nbsp;bạn,<br>Chuyện chúng mình về chung một mái&nbsp;nhà.<br>Xin mời bạn góp vui ngày trọng&nbsp;đại,<br>Để niềm vui được nhân đến thật&nbsp;xa.</p>
+        <p class="lede">Yêu nhau tam tứ núi cũng&nbsp;trèo<br>Thất bát sông cũng&nbsp;lội<br>Tam thập lục đèo cũng&nbsp;qua<br>Xin mời bạn chung vui ngày&nbsp;cưới<br><em style="font-size:.8em;opacity:.7">— Ca dao</em></p>
       </div>
       <div class="single reveal">
         <figure class="ph arch"><img src="thiep-cuoi-viet-anh-lan-vi/images/net-xua.jpg" alt="Hai bạn trong áo cưới truyền thống bên chữ Hỷ" loading="lazy"></figure>
@@ -750,13 +761,8 @@ footer p{color:var(--soft)}
             <figure class="avatar"><img src="thiep-cuoi-viet-anh-lan-vi/images/co-dau.jpg" alt="Cô dâu Trần Thị Lan Vi" loading="lazy"></figure>
           </div>
           <h3 class="gift-title">Hộp mừng cưới</h3>
-          <p class="lede" style="margin-bottom:1.1rem">Quét mã QR hoặc chuyển khoản theo thông tin bên dưới.</p>
+          <p class="lede" style="margin-bottom:1.1rem">Quét mã QR bên dưới để gửi lời chúc mừng.</p>
           <figure class="qr"><img src="thiep-cuoi-viet-anh-lan-vi/images/qr-co-dau.png" alt="Mã QR chuyển khoản mừng cưới, Vietcombank, chủ tài khoản Trần Thị Lan Vi" loading="lazy"></figure>
-          <p>Ngân hàng: <b>Vietcombank — PGD Linh Đàm</b></p>
-          <p>Số tài khoản: <b class="acc" id="acc-cd">1017221242</b></p>
-          <p>Chủ tài khoản: <b class="nw">Trần Thị Lan Vi</b></p>
-          <button class="btn copy" type="button" data-target="acc-cd">Sao chép số tài khoản</button>
-          <p class="note" aria-live="polite"></p>
         </div>
       </div>
     </div>
