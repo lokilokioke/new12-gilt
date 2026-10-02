@@ -266,6 +266,7 @@ footer p{color:var(--soft)}
 .gate.gone{opacity:0;visibility:hidden;pointer-events:none}
 .gate .g1{font-family:"Great Vibes",cursive;font-size:clamp(2.2rem,11vw,4.2rem);line-height:1.1;background:linear-gradient(180deg,#C9974A 10%,#8E5F1E 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;filter:drop-shadow(0 1px 6px rgba(184,138,62,.25))}
 .gate .g2{font-size:.9rem;letter-spacing:.2em;opacity:.9}
+.gate .g-title{font-family:"Playfair Display",serif;font-size:clamp(1.35rem,6.4vw,2.1rem);letter-spacing:.12em;padding-left:.12em;color:#8A6420;white-space:nowrap;line-height:1.2}
 .gate .g3{margin-top:1.2rem;padding:.8rem 2rem;border:1px solid rgba(184,138,62,.8);border-radius:999px;color:#8A6420;background:rgba(255,255,255,.55);font-size:.95rem;letter-spacing:.08em;animation:gatepulse 1.8s ease-in-out infinite}
 @keyframes gatepulse{50%{transform:scale(1.06);opacity:.75}}
 .music{position:fixed;right:1rem;bottom:calc(1rem + env(safe-area-inset-bottom,0px));z-index:70;width:3rem;height:3rem;border-radius:50%;border:1px solid rgba(217,178,112,.8);background:rgba(255,253,248,.92);color:#8E2A20;font-size:1.2rem;cursor:pointer;box-shadow:0 8px 20px -10px rgba(0,0,0,.5);display:none}
@@ -391,29 +392,30 @@ footer p{color:var(--soft)}
 /* ---------- Hero: nắng vàng, viền vàng kép, chữ nhũ ---------- */
 .hero-ed{color:#FFF4DE}
 .hero-ed > img{filter:saturate(1.05) contrast(1.02)}
-.hero-ed::after{background:linear-gradient(180deg,rgba(22,16,6,.62) 0%,rgba(22,16,6,.28) 22%,rgba(22,16,6,0) 38%,rgba(22,16,6,0) 58%,rgba(30,20,8,.42) 78%,rgba(22,14,6,.82) 100%)}
+.hero-ed::after{background:linear-gradient(180deg,rgba(22,16,6,.66) 0%,rgba(22,16,6,.3) 20%,rgba(22,16,6,0) 34%,rgba(22,16,6,0) 58%,rgba(30,20,8,.42) 78%,rgba(22,14,6,.82) 100%)}
 .hero-ed .hframe{border-color:rgba(240,214,160,.75)}
 .hero-ed .hframe::after{border-color:rgba(240,214,160,.38)}
 .hero-ed .orn{color:#F0D6A0}
 .gold-txt{background:linear-gradient(180deg,#FFF6DF 15%,#F0D29A 60%,#D9AE62 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
-.he-top,.he-names,.he-date,.he-got{position:absolute;left:0;right:0;z-index:3;opacity:0;animation:rise 1.2s cubic-bezier(.2,.7,.2,1) forwards}
-.he-top{top:calc(3.3rem + env(safe-area-inset-top,0px));text-align:center;padding:0 2rem;animation-delay:.3s}
-.he-quote{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:400;font-size:clamp(.78rem,3.6vw,1.05rem);line-height:1.7;margin:0;color:#F6E7C8;text-shadow:0 1px 10px rgba(0,0,0,.45)}
-.he-rule{display:flex;align-items:center;justify-content:center;gap:.7rem;color:#E9C987;margin:.55rem 0 .35rem}
+.he-top,.he-bottom{position:absolute;left:0;right:0;z-index:3;opacity:0;animation:rise 1.2s cubic-bezier(.2,.7,.2,1) forwards;text-align:center}
+.he-top{top:calc(2.6rem + env(safe-area-inset-top,0px));padding:0 1rem;animation-delay:.3s}
+.he-kicker{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:clamp(.7rem,3.1vw,.9rem);letter-spacing:.38em;padding-left:.38em;margin:0;color:#F2DDB0;text-shadow:0 1px 8px rgba(0,0,0,.5)}
+.hero .he-big{font-family:"Great Vibes",cursive;font-weight:400;font-size:clamp(2.8rem,13.4vw,4.8rem);line-height:1.2;margin:.1rem 0 0;display:inline-block;padding:0 .3em;background:linear-gradient(180deg,#FFF8E6 20%,#F2D59C 65%,#D9AC5E 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;filter:drop-shadow(0 2px 12px rgba(0,0,0,.55))}
+.he-rule{display:flex;align-items:center;justify-content:center;gap:.7rem;color:#E9C987;margin:0}
 .he-rule span{height:1px;width:3.4rem;background:linear-gradient(90deg,transparent,#E9C987)}
 .he-rule span:last-child{background:linear-gradient(270deg,transparent,#E9C987)}
 .he-rule i{font-style:normal;font-size:.9rem}
-.he-title{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:clamp(1.5rem,7.2vw,2.6rem);letter-spacing:.08em;margin:0;line-height:1.2;background:linear-gradient(180deg,#FFF8E6 20%,#F2D59C 70%,#DDB269 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;filter:drop-shadow(0 2px 10px rgba(0,0,0,.5))}
-.he-got{right:auto;left:50%;bottom:calc(9.4rem + env(safe-area-inset-bottom,0px));font-family:"Great Vibes",cursive;font-size:clamp(2rem,9vw,3rem);color:rgba(246,222,170,.82);transform:rotate(-24deg);transform-origin:left bottom;margin:0;animation-name:riseGot;animation-delay:1.3s;white-space:nowrap;text-shadow:0 2px 12px rgba(0,0,0,.35)}
-@keyframes riseGot{from{opacity:0;transform:rotate(-24deg) translateY(16px)}to{opacity:1;transform:rotate(-24deg)}}
-.he-names{bottom:calc(4.7rem + env(safe-area-inset-bottom,0px));display:flex;justify-content:space-between;padding:0 2.6rem;animation-delay:.9s}
+.he-bottom{bottom:calc(1.7rem + env(safe-area-inset-bottom,0px));padding:0 2.4rem;animation-delay:.9s}
+.he-got{font-family:"Great Vibes",cursive;font-size:clamp(1.6rem,7vw,2.3rem);color:rgba(246,222,170,.9);margin:0 0 .2rem;line-height:1.1;text-shadow:0 2px 12px rgba(0,0,0,.45)}
+.he-names{display:flex;justify-content:space-between;align-items:flex-end;gap:1rem}
 .he-names p{margin:0}
-.he-names .nm{font-family:"Cormorant Garamond",serif;font-weight:400;font-size:clamp(2.1rem,9.4vw,3.2rem);line-height:1.1;background:linear-gradient(180deg,#FFF8E8 25%,#F0D49C 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;filter:drop-shadow(0 2px 10px rgba(0,0,0,.5))}
-.he-names .role{font-weight:400;font-size:.7rem;letter-spacing:.42em;margin-top:.45rem;color:#E9C987}
+.he-names .nm{font-family:"Cormorant Garamond",serif;font-weight:400;font-size:clamp(1.8rem,8.2vw,2.8rem);line-height:1.1;background:linear-gradient(180deg,#FFF8E8 25%,#F0D49C 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;filter:drop-shadow(0 2px 10px rgba(0,0,0,.6))}
+.he-names .role{font-weight:400;font-size:.66rem;letter-spacing:.42em;margin-top:.3rem;color:#E9C987;text-shadow:0 1px 6px rgba(0,0,0,.5)}
+.he-names > div:first-child{text-align:left}
 .he-names .r{text-align:right}
 .he-names .r .role{margin-right:-.42em}
-.he-date{bottom:calc(2rem + env(safe-area-inset-bottom,0px));display:flex;align-items:center;justify-content:center;gap:.9rem;font-family:"Cormorant Garamond",serif;font-size:1.05rem;letter-spacing:.3em;margin:0;color:#F6E2B6;animation-delay:1.6s}
-.he-date .ln{width:2.6rem;height:1px;background:linear-gradient(90deg,transparent,#E9C987)}
+.he-date{display:flex;align-items:center;justify-content:center;gap:.8rem;font-family:"Cormorant Garamond",serif;font-size:1rem;letter-spacing:.3em;margin:.9rem 0 0;color:#F6E2B6;text-shadow:0 1px 8px rgba(0,0,0,.5)}
+.he-date .ln{width:2.2rem;height:1px;background:linear-gradient(90deg,transparent,#E9C987)}
 .he-date .ln:last-child{background:linear-gradient(270deg,transparent,#E9C987)}
 .hero-ed .hero-sparks svg:nth-child(1){top:30%;left:12%}.hero-ed .hero-sparks svg:nth-child(2){top:22%;right:12%}.hero-ed .hero-sparks svg:nth-child(3){top:60%;right:18%}
 
@@ -508,7 +510,59 @@ footer p{color:var(--soft)}
 @media (min-width:48rem){
   .bleed img{aspect-ratio:21/9}
 }
-@media (prefers-reduced-motion:reduce){.he-top,.he-names,.he-date,.he-got{animation-duration:.4s}}
+@media (prefers-reduced-motion:reduce){.he-top,.he-bottom{animation-duration:.4s}}
+
+/* ---------- Gọn hơn: chữ nhỏ lại, khoảng cách giữa các phần ngắn lại ---------- */
+body{font-size:.95rem;line-height:1.7}
+.chapter{padding:3.6rem 0 3rem}
+.chap-title{font-size:clamp(2.3rem,8.6vw,3.6rem);margin-bottom:.7rem}
+.lede{font-size:.98rem}
+.sprig{width:min(12rem,60%);margin-bottom:.6rem}
+.fleuron{margin-bottom:1.1rem}
+.caps-sm{margin-bottom:.9rem;font-size:clamp(.72rem,3.1vw,.88rem)}
+.family{font-size:clamp(1rem,4.2vw,1.22rem);line-height:1.75}
+.ed-story,.ed-center{font-size:clamp(.94rem,3.9vw,1.1rem);line-height:1.7}
+.ed-story{margin-bottom:1.3rem}
+.ed-center{margin-bottom:1.2rem}
+.caps-title{font-size:clamp(1rem,4.6vw,1.4rem);margin-bottom:.6rem}
+.ls-title{font-size:clamp(1.9rem,9vw,3rem);margin-bottom:-2.1rem}
+.ls-title.left{margin:0 0 .7rem}
+.vi-verse{font-size:clamp(.9rem,3.8vw,1.05rem)}
+.vi-verse.center{margin-top:1.3rem}
+.tog-head{margin-bottom:1rem}
+.mem-txt b{font-size:clamp(1rem,4.4vw,1.35rem)}
+.sweet{font-size:clamp(2.5rem,12vw,3.8rem)}
+.hy{font-size:clamp(3.2rem,15vw,4.6rem)}
+.fl-title{font-size:clamp(1.7rem,8vw,2.8rem)}
+.fl-head{margin-bottom:.6rem}
+.fl-poem{font-size:clamp(.92rem,4.1vw,1.15rem);margin-bottom:1rem}
+.fl-photo{padding-bottom:2.8rem}
+.fl-script{font-size:clamp(2rem,9vw,2.9rem)}
+.frame{padding:2.6rem 1.6rem}
+.invite-card{margin-top:2.2rem}
+.inv-lead{margin:1.3rem 0 .4rem}
+.inv-names{font-size:clamp(2.1rem,8.4vw,3rem)}
+.bigdate{margin-top:1.3rem}
+.bigdate .d{font-size:3rem}
+.calendar{margin-top:1.5rem}
+.count{margin-top:1.6rem}
+.count b{font-size:1.8rem}
+.events{margin-top:1.6rem}
+.event{padding:2.2rem 1.1rem 1.8rem}
+.event h3{font-size:1.8rem}
+.event .time{font-size:1.4rem}
+.rsvp{margin-top:1.4rem}
+.gifts{margin-top:1.4rem}
+.gift{padding:2.4rem 1.3rem 2rem}
+.gift-photo{width:min(13rem,76%)}
+footer{padding-top:2rem}
+footer .script{font-size:clamp(2.2rem,8.6vw,3rem)}
+.invite-card .seal{margin:-.6rem auto 1.1rem}
+@media (max-width:40rem){
+  .chapter{padding:2.8rem 0 2.4rem}
+  .lede{font-size:clamp(.82rem,3.8vw,.96rem)}
+  .frame{padding:2.3rem 1.2rem}
+}
 </style>
 </head>
 <body>
@@ -518,7 +572,7 @@ footer p{color:var(--soft)}
   <svg class="orn tl"><use href="#corner"/></svg><svg class="orn tr"><use href="#corner"/></svg>
   <svg class="orn bl"><use href="#corner"/></svg><svg class="orn br"><use href="#corner"/></svg>
   <div class="g-in">
-    <div class="g2">THIỆP MỜI CƯỚI</div>
+    <div class="g-title">THIỆP MỜI CƯỚI</div>
     <svg class="gsprig" viewBox="0 0 240 44"><use href="#sprig"/></svg>
     <p class="g4"><span class="nw">Trân trọng kính mời bạn cùng người thương</span><br><span class="nw">đến dự lễ thành hôn của</span></p>
     <div class="g1"><span class="nw">Việt Anh <i>&amp;</i> Lan Vi</span></div>
@@ -675,16 +729,18 @@ footer p{color:var(--soft)}
     <svg class="orn bl"><use href="#corner"/></svg><svg class="orn br"><use href="#corner"/></svg>
     <div class="hero-sparks" aria-hidden="true"><svg viewBox="-10 -10 20 20"><use href="#sparkle"/></svg><svg viewBox="-10 -10 20 20"><use href="#sparkle"/></svg><svg viewBox="-10 -10 20 20"><use href="#sparkle"/></svg></div>
     <div class="he-top">
-      <p class="he-quote"><span class="nw">I love three things in this world: Sun, Moon and you.</span><br><span class="nw">Sun for morning, moon for night,</span><br><span class="nw">and you forever.</span></p>
+      <p class="he-kicker">OUR WEDDING MEMORIES</p>
+      <h1 class="he-big nw">Thiệp Mời Cưới</h1>
       <div class="he-rule" aria-hidden="true"><span></span><i>❦</i><span></span></div>
-      <p class="he-title nw">Our wedding memories</p>
     </div>
-    <p class="he-got" aria-hidden="true">We got married</p>
-    <div class="he-names">
-      <div><p class="nm nw">Việt Anh</p><p class="role">GROOM</p></div>
-      <div class="r"><p class="nm nw">Lan Vi</p><p class="role">BRIDE</p></div>
+    <div class="he-bottom">
+      <p class="he-got" aria-hidden="true">We got married</p>
+      <div class="he-names">
+        <div><p class="nm nw">Việt Anh</p><p class="role">GROOM</p></div>
+        <div class="r"><p class="nm nw">Lan Vi</p><p class="role">BRIDE</p></div>
+      </div>
+      <p class="he-date"><span class="ln"></span>2026.10.18<span class="ln"></span></p>
     </div>
-    <p class="he-date"><span class="ln"></span>2026.10.18<span class="ln"></span></p>
   </header>
 
   <!-- ===================== GỬI GIA ĐÌNH & BẠN BÈ ===================== -->
@@ -709,19 +765,10 @@ footer p{color:var(--soft)}
         <figure class="gc-a zoom arch-f reveal"><img src="thiep-cuoi-viet-anh-lan-vi/images/vuon-2.jpg" alt="Việt Anh nắm tay dẫn Lan Vi bên đài phun nước" loading="lazy"></figure>
         <figure class="gc-b zoom mat reveal"><img src="thiep-cuoi-viet-anh-lan-vi/images/vuon-1.jpg" alt="Việt Anh hôn má Lan Vi giữa hàng cây xanh" loading="lazy"></figure>
       </div>
-    </div>
-  </section>
-
-  <!-- ===================== RIGHT LOVE (hoàng hôn) ===================== -->
-  <section class="chapter ed t-sunset no-deco" data-tone="sunset" style="padding-top:0">
-    <figure class="bleed zoom">
-      <img src="thiep-cuoi-viet-anh-lan-vi/images/hoang-hon-2.jpg" alt="Hai bạn nắm tay đi dạo bên hồ lúc hoàng hôn" loading="lazy">
-      <figcaption class="bleed-txt">Right love | Right reason | Right for you</figcaption>
-    </figure>
-    <div class="ed-col" style="text-align:center">
-      <div class="fleuron" aria-hidden="true" style="margin-bottom:1.4rem"><span></span><i>❦</i><span></span></div>
-      <h2 class="caps-title reveal">SOULMATES</h2>
-      <p class="ed-center reveal">Qua từng ngày bên nhau, chúng mình học cách lắng nghe, thấu hiểu và nhường nhịn nhau nhiều hơn. Để rồi một ngày, cả hai cùng quyết định: từ nay là bạn đời, là tri kỷ — cùng nhau đi hết những chặng đường phía trước.</p>
+      <div style="text-align:center;margin-top:1.6rem">
+        <h2 class="caps-title reveal">SOULMATES</h2>
+        <p class="ed-center reveal" style="margin:0">Qua từng ngày bên nhau, chúng mình học cách lắng nghe, thấu hiểu và nhường nhịn nhau nhiều hơn. Để rồi một ngày, cả hai cùng quyết định: từ nay là bạn đời, là tri kỷ — cùng nhau đi hết những chặng đường phía trước.</p>
+      </div>
     </div>
   </section>
 
@@ -784,7 +831,7 @@ footer p{color:var(--soft)}
   <section class="chapter" data-tone="red" id="ngay-cuoi" style="padding-top:1rem">
     <div class="wrap">
       <!-- Tấm thiệp mời -->
-      <div class="frame invite-card reveal" style="margin-top:4rem">
+      <div class="frame invite-card reveal">
       <div class="shimmer" aria-hidden="true"></div>
         <svg class="orn tl"><use href="#corner"/></svg><svg class="orn tr"><use href="#corner"/></svg>
         <svg class="orn bl"><use href="#corner"/></svg><svg class="orn br"><use href="#corner"/></svg>
@@ -878,7 +925,7 @@ footer p{color:var(--soft)}
         <div class="thanks" id="thanks"><span class="big" aria-hidden="true">💕</span><p>Đã gửi xác nhận. Cảm ơn bạn thật nhiều!</p></div>
       </div>
 
-      <div class="narrow reveal" style="margin-top:5rem">
+      <div class="narrow reveal" style="margin-top:3rem">
         <h2 class="chap-title">Hộp mừng cưới</h2>
         <p class="lede">Sự hiện diện của bạn là món quà quý giá nhất.</p>
       </div>
