@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" id="themeColor" content="#F3E6CC">
+<meta name="theme-color" id="themeColor" content="#FBF3E6">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <title>Việt Anh & Lan Vi · 18.10.2026</title>
 <meta name="description" content="Trân trọng kính mời bạn đến dự lễ thành hôn của Trần Việt Anh và Trần Thị Lan Vi, Chủ nhật 18.10.2026.">
@@ -11,7 +11,7 @@
 <meta property="og:description" content="Chuyện của chúng mình, và lời mời dành cho bạn.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,200;0,300;0,400;0,500;1,300&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,200;0,300;0,400;0,500;1,200;1,300&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Ephesis&family=Mr+Dafoe&family=Oswald:wght@200&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <style>
 /* =============================================================
    TÔNG MÀU TỪNG CHƯƠNG — nền cả trang chuyển dần theo chương đang xem
@@ -266,6 +266,7 @@ footer p{color:var(--soft)}
 .gate.gone{opacity:0;visibility:hidden;pointer-events:none}
 .gate .g1{font-family:"Great Vibes",cursive;font-size:clamp(2.2rem,11vw,4.2rem);line-height:1.1;background:linear-gradient(180deg,#C9974A 10%,#8E5F1E 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;filter:drop-shadow(0 1px 6px rgba(184,138,62,.25))}
 .gate .g2{font-size:.9rem;letter-spacing:.2em;opacity:.9}
+.gate .g-title{font-family:"Playfair Display",serif;font-size:clamp(1.35rem,6.4vw,2.1rem);letter-spacing:.12em;padding-left:.12em;color:#8A6420;white-space:nowrap;line-height:1.2}
 .gate .g3{margin-top:1.2rem;padding:.8rem 2rem;border:1px solid rgba(184,138,62,.8);border-radius:999px;color:#8A6420;background:rgba(255,255,255,.55);font-size:.95rem;letter-spacing:.08em;animation:gatepulse 1.8s ease-in-out infinite}
 @keyframes gatepulse{50%{transform:scale(1.06);opacity:.75}}
 .music{position:fixed;right:1rem;bottom:calc(1rem + env(safe-area-inset-bottom,0px));z-index:70;width:3rem;height:3rem;border-radius:50%;border:1px solid rgba(217,178,112,.8);background:rgba(255,253,248,.92);color:#8E2A20;font-size:1.2rem;cursor:pointer;box-shadow:0 8px 20px -10px rgba(0,0,0,.5);display:none}
@@ -371,6 +372,197 @@ footer p{color:var(--soft)}
 .hero h1 .heart{animation-duration:3.2s}
 .cal-grid .big::before{animation:none}
 .gate .g3{animation-duration:3.2s}
+
+/* =============================================================
+   STORY KIỂU TẠP CHÍ — mỗi phần một tông hợp với ảnh
+   ============================================================= */
+[data-tone="sage"]{--t-bg:#E6EDE1;--t-ink:#1F2E1C;--t-accent:#5A7A55;--t-soft:#4E5E4C;--t-card:#FBFCF8;--t-line:rgba(60,94,64,.35);--t-petal:#F2C3CF;--t-mat:#FFFFFF}
+[data-tone="cream"]{--t-bg:#F8F0E4;--t-ink:#3B2E28;--t-accent:#A9824C;--t-soft:#7E6A5F;--t-card:#FFFDF8;--t-line:rgba(169,130,76,.45);--t-petal:#F2C3CF;--t-mat:#FFFFFF}
+.ed-col{max-width:34rem;margin:0 auto;padding:0 1.6rem}
+.ed{--hl:#8E2A20;--block:#E8D9BE}
+.ed.t-garden{--hl:#2E4A30;--block:#C9D9BF}
+.ed.t-sunset{--hl:#9E4A33;--block:#F1CDB8}
+.ed.t-gold{--hl:#8C6224;--block:#EBD5A6;--sweet:#A8452B}
+.ed.t-cream{--hl:#9A6B4F}
+.zoom{margin:0;cursor:zoom-in;overflow:hidden;position:relative}
+.zoom img{width:100%;height:100%;object-fit:cover}
+.mat{padding:9px;background:#FFFDF8;box-shadow:0 18px 40px -26px rgba(40,20,10,.55)}
+.mat::after{content:"";position:absolute;inset:4px;border:1px solid var(--line);pointer-events:none}
+
+/* ---------- Hero: nắng vàng, viền vàng kép, chữ nhũ ---------- */
+.hero-ed{color:#FFF4DE}
+.hero-ed > img{filter:saturate(1.05) contrast(1.02)}
+.hero-ed::after{background:linear-gradient(180deg,rgba(22,16,6,.66) 0%,rgba(22,16,6,.3) 20%,rgba(22,16,6,0) 34%,rgba(22,16,6,0) 58%,rgba(30,20,8,.42) 78%,rgba(22,14,6,.82) 100%)}
+.hero-ed .hframe{border-color:rgba(240,214,160,.75)}
+.hero-ed .hframe::after{border-color:rgba(240,214,160,.38)}
+.hero-ed .orn{color:#F0D6A0}
+.gold-txt{background:linear-gradient(180deg,#FFF6DF 15%,#F0D29A 60%,#D9AE62 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+.he-top,.he-bottom{position:absolute;left:0;right:0;z-index:3;opacity:0;animation:rise 1.2s cubic-bezier(.2,.7,.2,1) forwards;text-align:center}
+.he-top{top:calc(2.6rem + env(safe-area-inset-top,0px));padding:0 1rem;animation-delay:.3s}
+.he-kicker{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:clamp(.7rem,3.1vw,.9rem);letter-spacing:.38em;padding-left:.38em;margin:0;color:#F2DDB0;text-shadow:0 1px 8px rgba(0,0,0,.5)}
+.hero .he-big{font-family:"Great Vibes",cursive;font-weight:400;font-size:clamp(2.8rem,13.4vw,4.8rem);line-height:1.2;margin:.1rem 0 0;display:inline-block;padding:0 .3em;background:linear-gradient(180deg,#FFF8E6 20%,#F2D59C 65%,#D9AC5E 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;filter:drop-shadow(0 2px 12px rgba(0,0,0,.55))}
+.he-rule{display:flex;align-items:center;justify-content:center;gap:.7rem;color:#E9C987;margin:0}
+.he-rule span{height:1px;width:3.4rem;background:linear-gradient(90deg,transparent,#E9C987)}
+.he-rule span:last-child{background:linear-gradient(270deg,transparent,#E9C987)}
+.he-rule i{font-style:normal;font-size:.9rem}
+.he-bottom{bottom:calc(1.7rem + env(safe-area-inset-bottom,0px));padding:0 2.4rem;animation-delay:.9s}
+.he-got{font-family:"Great Vibes",cursive;font-size:clamp(1.6rem,7vw,2.3rem);color:rgba(246,222,170,.9);margin:0 0 .2rem;line-height:1.1;text-shadow:0 2px 12px rgba(0,0,0,.45)}
+.he-names{display:flex;justify-content:space-between;align-items:flex-end;gap:1rem}
+.he-names p{margin:0}
+.he-names .nm{font-family:"Cormorant Garamond",serif;font-weight:400;font-size:clamp(1.8rem,8.2vw,2.8rem);line-height:1.1;background:linear-gradient(180deg,#FFF8E8 25%,#F0D49C 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;filter:drop-shadow(0 2px 10px rgba(0,0,0,.6))}
+.he-names .role{font-weight:400;font-size:.66rem;letter-spacing:.42em;margin-top:.3rem;color:#E9C987;text-shadow:0 1px 6px rgba(0,0,0,.5)}
+.he-names > div:first-child{text-align:left}
+.he-names .r{text-align:right}
+.he-names .r .role{margin-right:-.42em}
+.he-date{display:flex;align-items:center;justify-content:center;gap:.8rem;font-family:"Cormorant Garamond",serif;font-size:1rem;letter-spacing:.3em;margin:.9rem 0 0;color:#F6E2B6;text-shadow:0 1px 8px rgba(0,0,0,.5)}
+.he-date .ln{width:2.2rem;height:1px;background:linear-gradient(90deg,transparent,#E9C987)}
+.he-date .ln:last-child{background:linear-gradient(270deg,transparent,#E9C987)}
+.hero-ed .hero-sparks svg:nth-child(1){top:30%;left:12%}.hero-ed .hero-sparks svg:nth-child(2){top:22%;right:12%}.hero-ed .hero-sparks svg:nth-child(3){top:60%;right:18%}
+
+/* ---------- Chữ chung ---------- */
+.fleuron{display:flex;align-items:center;justify-content:center;gap:1rem;color:var(--accent);margin-bottom:2.2rem}
+.fleuron span{height:1px;width:clamp(4rem,24vw,9rem);background:linear-gradient(90deg,transparent,var(--accent))}
+.fleuron span:last-child{background:linear-gradient(270deg,transparent,var(--accent))}
+.fleuron i{font-style:normal;font-size:1.2rem}
+.caps-sm{font-family:"Cormorant Garamond",serif;font-weight:500;letter-spacing:.36em;font-size:clamp(.78rem,3.4vw,.95rem);color:var(--accent);margin:0 0 1.8rem;text-align:center}
+.family{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:clamp(1.18rem,5vw,1.45rem);line-height:1.85;color:var(--ink);margin:0}
+.ed-story{font-family:"Cormorant Garamond",serif;font-size:clamp(1.05rem,4.3vw,1.25rem);line-height:1.75;color:var(--soft);margin:0 0 2rem}
+.ed-center{font-family:"Cormorant Garamond",serif;font-size:clamp(1.05rem,4.3vw,1.22rem);line-height:1.75;color:var(--soft);margin:0 0 1.8rem}
+.caps-title{font-family:"Playfair Display",serif;font-weight:400;letter-spacing:.32em;padding-left:.32em;font-size:clamp(1.15rem,5.4vw,1.6rem);color:var(--hl,var(--ink));margin:0 0 1rem}
+.ls-title{position:relative;z-index:3;text-align:right;margin:0 0 -2.6rem;font-family:"Playfair Display",serif;font-weight:400;font-size:clamp(2.2rem,10.4vw,3.6rem);line-height:1;color:var(--hl);letter-spacing:-.01em}
+.ls-title.left{text-align:left;margin:0 0 1.2rem}
+.ls-vert{position:absolute;left:-.5rem;top:4.2rem;writing-mode:vertical-rl;transform:rotate(180deg);font-family:"Ephesis","Great Vibes",cursive;font-size:clamp(1.3rem,5.4vw,1.7rem);color:var(--soft);opacity:.8;margin:0;z-index:1;white-space:nowrap;line-height:1}
+
+/* ---------- Our love story: khu vườn — vòm lớn + ảnh viền trắng ---------- */
+.garden-col{position:relative;padding-bottom:1rem}
+.gc-block{position:absolute;right:0;top:12%;width:62%;height:70%;background:var(--block);z-index:0}
+.gc-branch{position:absolute;right:-.4rem;top:-1.4rem;width:4.4rem;height:auto;color:var(--hl);opacity:.45;z-index:1;transform:rotate(12deg)}
+.ls-vert.right{left:auto;right:-.3rem;top:auto;bottom:2rem;transform:none}
+.gc-a{position:relative;z-index:2;width:74%;aspect-ratio:2/3;border-radius:999px 999px 4px 4px;box-shadow:0 22px 44px -28px rgba(20,40,20,.6)}
+.gc-a img{object-position:50% 60%}
+.gc-b{position:relative;z-index:3;width:52%;aspect-ratio:2/3;margin:-42% 0 0 auto;margin-right:8%}
+.gc-b img{object-position:50% 70%}
+
+/* ---------- Ảnh tràn màn hình có chữ ---------- */
+.bleed{margin:0 0 2.4rem;position:relative}
+.bleed img{aspect-ratio:4/5;max-height:86vh;object-position:62% 50%}
+.bleed::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(40,16,8,.6),rgba(40,16,8,0) 45%);pointer-events:none}
+.bleed-txt{position:absolute;left:0;right:0;bottom:1.3rem;z-index:2;text-align:center;color:#FFF1E4;font-family:"Oswald",sans-serif;font-weight:200;font-size:clamp(1.05rem,5vw,1.7rem);letter-spacing:.02em;white-space:nowrap;text-shadow:0 1px 10px rgba(0,0,0,.4);pointer-events:none}
+
+/* ---------- Wedding memories: tiêu đề nguyệt quế + bố cục chồng lớp ---------- */
+.memories{position:relative;display:flex;align-items:center;justify-content:center;gap:.8rem;color:var(--accent);padding-right:2rem}
+.laurel{width:1.6rem;height:3.4rem}
+.laurel.flip{transform:scaleX(-1)}
+.mem-txt{display:flex;flex-direction:column;align-items:center;font-family:"Playfair Display",serif;line-height:1.1}
+.mem-txt b{font-weight:400;color:var(--hl);letter-spacing:.5em;padding-left:.5em;font-size:clamp(1.1rem,5vw,1.5rem)}
+.mem-txt span{color:var(--accent);letter-spacing:.5em;padding-left:.5em;font-size:clamp(.7rem,3.2vw,.9rem)}
+.sweet{position:absolute;right:-.6rem;bottom:-.8rem;font-family:"Mr Dafoe","Great Vibes",cursive;font-size:clamp(3rem,15vw,4.6rem);color:var(--sweet,var(--hl));transform:rotate(-20deg);line-height:1;pointer-events:none}
+.ls-collage{position:relative;padding-bottom:1rem}
+.ls-green{position:absolute;top:2.4rem;left:4%;width:58%;height:42%;background:var(--block);z-index:0}
+.ls-main{position:relative;z-index:2;margin-left:13%;aspect-ratio:1/1}
+.ls-main img{object-position:62% 12%}
+.ls-wide{position:relative;z-index:2;width:78%;margin:1.4rem 0 0 auto}
+.ls-wide img{aspect-ratio:3/2}
+.ls-small{position:relative;z-index:3;width:64%;margin:-12% 0 0 -2%;padding:12px;background:#FFFDF8;box-shadow:0 18px 40px -26px rgba(40,20,10,.55)}
+.ls-small img{aspect-ratio:3/2}
+
+/* ---------- Together: lưới tạp chí ---------- */
+.vi-verse{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:clamp(.98rem,4.1vw,1.15rem);line-height:1.8;color:var(--soft);margin:0 0 1.8rem}
+.vi-verse em{font-size:.85em;opacity:.8}
+.vi-verse.center{text-align:center;margin:2rem 0 0}
+.tog-head{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;margin-bottom:1.4rem;border-bottom:1px solid var(--line);padding-bottom:.6rem}
+.tog-script{font-family:"Great Vibes",cursive;font-size:clamp(1.5rem,6.6vw,2.2rem);color:var(--hl);margin:0;line-height:1;white-space:nowrap}
+.mag{display:grid;grid-template-columns:1.25fr 1fr;grid-template-rows:1fr 1fr;gap:.7rem}
+.mag .big{grid-row:span 2}
+.mag figure{min-height:0}
+.mag .big img{object-position:50% 30%}
+.mag figure:not(.big){aspect-ratio:3/4}
+.mag figure:not(.big) img{object-position:50% 25%}
+
+/* ---------- Về chung một nhà: đỏ son + nhũ vàng ---------- */
+.home{color:#F7E7CB}
+.fl-head{display:flex;align-items:center;gap:1.3rem;margin-bottom:1rem}
+.hy{font-family:"Noto Serif TC","Songti SC",serif;font-size:clamp(4rem,19vw,5.6rem);line-height:1;background:linear-gradient(180deg,#F7DE9F,#C99A45);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;filter:drop-shadow(0 2px 8px rgba(0,0,0,.25))}
+.fl-title{font-family:"Playfair Display",serif;font-weight:400;font-size:clamp(2rem,9.4vw,3.2rem);line-height:1.08;margin:0;color:#F7E7CB;letter-spacing:.02em}
+.fl-poem{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:clamp(1rem,4.6vw,1.3rem);line-height:1.75;color:#E9C987;margin:0 0 1.4rem}
+.dearest i{font-style:normal;color:#E9C987}
+.dearest{display:flex;justify-content:space-between;align-items:center;font-family:"Playfair Display",serif;letter-spacing:.1em;font-size:clamp(.82rem,3.9vw,1.15rem);color:#F7E7CB;margin:0 0 .8rem;border-top:1px solid rgba(227,188,102,.45);border-bottom:1px solid rgba(227,188,102,.45);padding:.55rem 0}
+.fl-photo{position:relative;padding-bottom:3.2rem}
+.fl-photo figure{aspect-ratio:2/3;padding:10px;background:linear-gradient(160deg,#F3D998,#B98A3E);box-shadow:0 26px 50px -30px rgba(0,0,0,.7)}
+.fl-photo figure::after{content:"";position:absolute;inset:5px;border:1px solid rgba(255,248,230,.7);pointer-events:none}
+.fl-photo figure img{object-position:50% 45%}
+.fl-photo .orn{color:#F3D998;width:3rem;height:3rem;z-index:3}
+.fl-photo .orn.tl{top:-.7rem;left:-.7rem}.fl-photo .orn.br{bottom:2.5rem;right:-.7rem}
+.fl-script{position:absolute;right:-.2rem;bottom:0;z-index:4;margin:0;display:flex;flex-direction:column;align-items:flex-end;font-family:"Great Vibes",cursive;color:#F3D998;font-size:clamp(2.3rem,10.4vw,3.3rem);line-height:1.02;text-shadow:0 2px 12px rgba(60,10,6,.8);pointer-events:none}
+.fl-script span:last-child{margin-right:.6rem}
+.home .vi-verse{color:rgba(247,231,203,.85)}
+
+/* ---------- Hộp mừng cưới: 1 ảnh + thông tin tài khoản ---------- */
+.gift-photo{width:min(15rem,82%);aspect-ratio:3/4;margin:0 auto 1.3rem;padding:6px;background:#fff;border-radius:999px 999px 10px 10px;box-shadow:0 18px 34px -20px rgba(40,20,10,.6);position:relative}
+.gift-photo::after{content:"";position:absolute;inset:3px;border:1px solid rgba(169,130,76,.5);border-radius:999px 999px 8px 8px;pointer-events:none}
+.gift-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 35%;border-radius:999px 999px 7px 7px}
+.bank{margin:1.2rem auto 0;max-width:20rem;text-align:left;border-top:1px solid rgba(169,130,76,.4);padding-top:1rem;font-size:.92rem;line-height:1.6;color:#3A2A26}
+.bank p{margin:.35rem 0}
+.bank .k{display:block;font-size:.74rem;letter-spacing:.14em;color:#A9824C}
+.bank .acc{font-family:"Playfair Display",serif;font-size:1.35rem;letter-spacing:.06em;color:#8E2A20}
+.gift .btn.copy{margin-top:.8rem;padding:.5rem 1.3rem;font-size:.88rem}
+
+@media (min-width:48rem){
+  .bleed img{aspect-ratio:21/9}
+}
+@media (prefers-reduced-motion:reduce){.he-top,.he-bottom{animation-duration:.4s}}
+
+/* ---------- Gọn hơn: chữ nhỏ lại, khoảng cách giữa các phần ngắn lại ---------- */
+body{font-size:.95rem;line-height:1.7}
+.chapter{padding:3.6rem 0 3rem}
+.chap-title{font-size:clamp(2.3rem,8.6vw,3.6rem);margin-bottom:.7rem}
+.lede{font-size:.98rem}
+.sprig{width:min(12rem,60%);margin-bottom:.6rem}
+.fleuron{margin-bottom:1.1rem}
+.caps-sm{margin-bottom:.9rem;font-size:clamp(.72rem,3.1vw,.88rem)}
+.family{font-size:clamp(1rem,4.2vw,1.22rem);line-height:1.75}
+.ed-story,.ed-center{font-size:clamp(.94rem,3.9vw,1.1rem);line-height:1.7}
+.ed-story{margin-bottom:1.3rem}
+.ed-center{margin-bottom:1.2rem}
+.caps-title{font-size:clamp(1rem,4.6vw,1.4rem);margin-bottom:.6rem}
+.ls-title{font-size:clamp(1.9rem,9vw,3rem);margin-bottom:-2.1rem}
+.ls-title.left{margin:0 0 .7rem}
+.vi-verse{font-size:clamp(.9rem,3.8vw,1.05rem)}
+.vi-verse.center{margin-top:1.3rem}
+.tog-head{margin-bottom:1rem}
+.mem-txt b{font-size:clamp(1rem,4.4vw,1.35rem)}
+.sweet{font-size:clamp(2.5rem,12vw,3.8rem)}
+.hy{font-size:clamp(3.2rem,15vw,4.6rem)}
+.fl-title{font-size:clamp(1.7rem,8vw,2.8rem)}
+.fl-head{margin-bottom:.6rem}
+.fl-poem{font-size:clamp(.92rem,4.1vw,1.15rem);margin-bottom:1rem}
+.fl-photo{padding-bottom:2.8rem}
+.fl-script{font-size:clamp(2rem,9vw,2.9rem)}
+.frame{padding:2.6rem 1.6rem}
+.invite-card{margin-top:2.2rem}
+.inv-lead{margin:1.3rem 0 .4rem}
+.inv-names{font-size:clamp(2.1rem,8.4vw,3rem)}
+.bigdate{margin-top:1.3rem}
+.bigdate .d{font-size:3rem}
+.calendar{margin-top:1.5rem}
+.count{margin-top:1.6rem}
+.count b{font-size:1.8rem}
+.events{margin-top:1.6rem}
+.event{padding:2.2rem 1.1rem 1.8rem}
+.event h3{font-size:1.8rem}
+.event .time{font-size:1.4rem}
+.rsvp{margin-top:1.4rem}
+.gifts{margin-top:1.4rem}
+.gift{padding:2.4rem 1.3rem 2rem}
+.gift-photo{width:min(13rem,76%)}
+footer{padding-top:2rem}
+footer .script{font-size:clamp(2.2rem,8.6vw,3rem)}
+.invite-card .seal{margin:-.6rem auto 1.1rem}
+@media (max-width:40rem){
+  .chapter{padding:2.8rem 0 2.4rem}
+  .lede{font-size:clamp(.82rem,3.8vw,.96rem)}
+  .frame{padding:2.3rem 1.2rem}
+}
 </style>
 </head>
 <body>
@@ -380,7 +572,7 @@ footer p{color:var(--soft)}
   <svg class="orn tl"><use href="#corner"/></svg><svg class="orn tr"><use href="#corner"/></svg>
   <svg class="orn bl"><use href="#corner"/></svg><svg class="orn br"><use href="#corner"/></svg>
   <div class="g-in">
-    <div class="g2">THIỆP MỜI CƯỚI</div>
+    <div class="g-title">THIỆP MỜI CƯỚI</div>
     <svg class="gsprig" viewBox="0 0 240 44"><use href="#sprig"/></svg>
     <p class="g4"><span class="nw">Trân trọng kính mời bạn cùng người thương</span><br><span class="nw">đến dự lễ thành hôn của</span></p>
     <div class="g1"><span class="nw">Việt Anh <i>&amp;</i> Lan Vi</span></div>
@@ -420,6 +612,14 @@ footer p{color:var(--soft)}
     <path d="M-4-3 L0-9 L4-3 Z" opacity=".95" fill="#fff"/>
     <path d="M-8-3 L-4-3 L0 8 Z" opacity=".25" fill="#fff"/>
     <path d="M8-3 L4-3 L0 8 Z" opacity=".4"/>
+  </symbol>
+  <symbol id="laurel" viewBox="0 0 40 90" fill="currentColor">
+    <path d="M30 88C12 70 8 42 22 4" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+    <ellipse cx="14" cy="72" rx="7" ry="3" transform="rotate(-30 14 72)"/><ellipse cx="26" cy="66" rx="7" ry="3" transform="rotate(40 26 66)"/>
+    <ellipse cx="9" cy="56" rx="7" ry="3" transform="rotate(-45 9 56)"/><ellipse cx="21" cy="50" rx="7" ry="3" transform="rotate(30 21 50)"/>
+    <ellipse cx="8" cy="40" rx="6.5" ry="2.8" transform="rotate(-60 8 40)"/><ellipse cx="20" cy="34" rx="6.5" ry="2.8" transform="rotate(20 20 34)"/>
+    <ellipse cx="11" cy="24" rx="6" ry="2.6" transform="rotate(-70 11 24)"/><ellipse cx="22" cy="18" rx="6" ry="2.6" transform="rotate(10 22 18)"/>
+    <ellipse cx="20" cy="6" rx="5" ry="2.4" transform="rotate(-80 20 6)"/>
   </symbol>
   <symbol id="sparkle" viewBox="-10 -10 20 20" fill="currentColor">
     <path d="M0-10C.6-3.4 3.4-.6 10 0 3.4.6.6 3.4 0 10-.6 3.4-3.4.6-10 0-3.4-.6-.6-3.4 0-10Z"/>
@@ -521,140 +721,117 @@ footer p{color:var(--soft)}
 </script>
 
 <main>
-  <!-- ===================== MỞ ĐẦU ===================== -->
-  <header class="hero" data-tone="gold" data-hero>
+  <!-- ===================== MỞ ĐẦU (sang trọng, tông vàng nắng) ===================== -->
+  <header class="hero hero-ed" data-tone="gold" data-hero>
     <img src="thiep-cuoi-viet-anh-lan-vi/images/hero.jpg" alt="Việt Anh và Lan Vi áp trán nhau dưới lớp voan, nắng chiều xuyên qua khu vườn" style="object-position:77% 32%">
     <div class="hframe"></div>
     <svg class="orn tl"><use href="#corner"/></svg><svg class="orn tr"><use href="#corner"/></svg>
     <svg class="orn bl"><use href="#corner"/></svg><svg class="orn br"><use href="#corner"/></svg>
-    <div class="hero-top"><span class="ln"></span><span class="tt">THIỆP MỜI CƯỚI</span><span class="ln"></span></div>
-    <div class="hero-sparks" aria-hidden="true"><svg viewBox="-10 -10 20 20"><use href="#sparkle"/></svg><svg viewBox="-10 -10 20 20"><use href="#sparkle"/></svg><svg viewBox="-10 -10 20 20"><use href="#sparkle"/></svg><svg viewBox="-10 -10 20 20"><use href="#sparkle"/></svg><svg viewBox="-10 -10 20 20"><use href="#sparkle"/></svg><svg viewBox="-10 -10 20 20"><use href="#sparkle"/></svg></div>
-    <div class="hero-text">
-      <svg class="sprig" viewBox="0 0 240 44"><use href="#sprig"/></svg>
-      <p class="invite-line"><span class="nw">Trân trọng kính mời bạn cùng người thương</span><br><span class="nw">đến dự lễ thành hôn của</span></p>
-      <h1 class="script"><span class="nw">Việt Anh</span> <span class="heart" aria-hidden="true">♥</span> <span class="nw">Lan Vi</span></h1>
-      <p class="date">18 · 10 · 2026</p>
-      <svg class="sprig sm" viewBox="0 0 240 44"><use href="#sprig"/></svg>
-      <a class="scroll" href="#chuyen">Đọc chuyện của chúng mình ↓</a>
+    <div class="hero-sparks" aria-hidden="true"><svg viewBox="-10 -10 20 20"><use href="#sparkle"/></svg><svg viewBox="-10 -10 20 20"><use href="#sparkle"/></svg><svg viewBox="-10 -10 20 20"><use href="#sparkle"/></svg></div>
+    <div class="he-top">
+      <p class="he-kicker">OUR WEDDING MEMORIES</p>
+      <h1 class="he-big nw">Thiệp Mời Cưới</h1>
+      <div class="he-rule" aria-hidden="true"><span></span><i>❦</i><span></span></div>
+    </div>
+    <div class="he-bottom">
+      <p class="he-got" aria-hidden="true">We got married</p>
+      <div class="he-names">
+        <div><p class="nm nw">Việt Anh</p><p class="role">GROOM</p></div>
+        <div class="r"><p class="nm nw">Lan Vi</p><p class="role">BRIDE</p></div>
+      </div>
+      <p class="he-date"><span class="ln"></span>2026.10.18<span class="ln"></span></p>
     </div>
   </header>
 
-  <!-- ===================== LỜI DẪN ===================== -->
-  <section class="chapter" id="chuyen" data-tone="ivory">
-    <div class="wrap narrow reveal">
-      <svg class="sprig" viewBox="0 0 240 44"><use href="#sprig"/></svg>
-      <h2 class="chap-title">Chuyện của chúng mình</h2>
-      <p class="lede">Chỉ có thuyền mới&nbsp;hiểu<br>Biển mênh mông nhường&nbsp;nào<br>Chỉ có biển mới&nbsp;biết<br>Thuyền đi đâu, về&nbsp;đâu<br><em style="font-size:.8em;opacity:.7">— Xuân Quỳnh</em></p>
+  <!-- ===================== GỬI GIA ĐÌNH & BẠN BÈ ===================== -->
+  <section class="chapter ed" id="chuyen" data-tone="ivory">
+    <div class="ed-col reveal" style="text-align:center">
+      <div class="fleuron" aria-hidden="true"><span></span><i>❦</i><span></span></div>
+      <p class="caps-sm">TO OUR FAMILY AND FRIENDS</p>
+      <p class="family">“Ba năm qua, chúng mình đã lớn lên cùng nhau trong vòng tay yêu thương của gia đình và bạn bè. Cảm ơn mọi người đã luôn ở bên, lắng nghe và vun đắp cho hạnh phúc của Việt Anh và Lan Vi. Ngày vui của chúng mình sẽ thật trọn vẹn khi có sự hiện diện của bạn!”</p>
     </div>
   </section>
 
-  <!-- ===================== CHƯƠNG 1 · KHU VƯỜN ===================== -->
-  <section class="chapter" data-tone="garden">
-    <div class="wrap">
-      <div class="narrow reveal">
-        <svg class="sprig" viewBox="0 0 240 44"><use href="#sprig"/></svg>
-        <span class="chap-no">Chương một</span>
-        <h2 class="chap-title">Khu vườn nhỏ</h2>
-        <p class="lede">Con sóng dưới lòng&nbsp;sâu<br>Con sóng trên mặt&nbsp;nước<br>Ôi con sóng nhớ&nbsp;bờ<br>Ngày đêm không ngủ&nbsp;được<br><em style="font-size:.8em;opacity:.7">— Xuân Quỳnh</em></p>
+  <!-- ===================== OUR LOVE STORY (khu vườn) ===================== -->
+  <section class="chapter ed t-garden no-deco" data-tone="sage">
+    <div class="ed-col">
+      <p class="caps-sm" style="text-align:left;margin-bottom:.5rem">3 NĂM · MỘT HÀNH TRÌNH</p>
+      <h2 class="ls-title left reveal">OUR<br>LOVE STORY</h2>
+      <p class="ed-story reveal">Ba năm trước, Việt Anh và Lan Vi tìm thấy nhau. Ba năm ấy có những kỷ niệm thật đẹp, và cả những ngày không vui — nhưng chúng mình chưa từng buông tay. Cùng nhau học tập, cùng tham gia những hoạt động giúp mỗi người trưởng thành hơn, để cả hai trở thành phiên bản tốt hơn của chính mình.</p>
+      <div class="garden-col">
+        <span class="gc-block" aria-hidden="true"></span>
+        <svg class="gc-branch" viewBox="0 0 120 220" aria-hidden="true"><use href="#branch"/></svg>
+        <p class="ls-vert right" aria-hidden="true">Love never fades away</p>
+        <figure class="gc-a zoom arch-f reveal"><img src="thiep-cuoi-viet-anh-lan-vi/images/vuon-2.jpg" alt="Việt Anh nắm tay dẫn Lan Vi bên đài phun nước" loading="lazy"></figure>
+        <figure class="gc-b zoom mat reveal"><img src="thiep-cuoi-viet-anh-lan-vi/images/vuon-1.jpg" alt="Việt Anh hôn má Lan Vi giữa hàng cây xanh" loading="lazy"></figure>
       </div>
-      <div class="duo">
-        <figure class="ph r tilt-l reveal"><img src="thiep-cuoi-viet-anh-lan-vi/images/vuon-1.jpg" alt="Việt Anh hôn má Lan Vi giữa hàng cây xanh" loading="lazy"></figure>
-        <figure class="ph r tilt-r tape reveal"><img src="thiep-cuoi-viet-anh-lan-vi/images/vuon-2.jpg" alt="Việt Anh nắm tay dẫn Lan Vi bên đài phun nước" loading="lazy"></figure>
-      </div>
-      <div class="single reveal">
-        <figure class="ph arch"><img src="thiep-cuoi-viet-anh-lan-vi/images/vuon-3.jpg" alt="Hai bạn đeo kính râm tạo dáng giữa vườn" loading="lazy"></figure>
-        <p class="caption">…và cả những lúc “ngầu” bất đắc dĩ 😎</p>
+      <div style="text-align:center;margin-top:1.6rem">
+        <h2 class="caps-title reveal">SOULMATES</h2>
+        <p class="ed-center reveal" style="margin:0">Qua từng ngày bên nhau, chúng mình học cách lắng nghe, thấu hiểu và nhường nhịn nhau nhiều hơn. Để rồi một ngày, cả hai cùng quyết định: từ nay là bạn đời, là tri kỷ — cùng nhau đi hết những chặng đường phía trước.</p>
       </div>
     </div>
   </section>
 
-  <!-- ===================== CHƯƠNG 2 · NHỮNG LÁ THƯ ===================== -->
-  <section class="chapter" data-tone="gold">
-    <div class="wrap narrow reveal">
-      <svg class="sprig" viewBox="0 0 240 44"><use href="#sprig"/></svg>
-      <span class="chap-no">Chương hai</span>
-      <h2 class="chap-title">Những lá thư</h2>
-      <p class="lede">Lòng em nhớ đến&nbsp;anh<br>Cả trong mơ còn&nbsp;thức<br>Nơi nào em cũng&nbsp;nghĩ<br>Hướng về anh một&nbsp;phương<br><em style="font-size:.8em;opacity:.7">— Xuân Quỳnh</em></p>
+  <!-- ===================== WEDDING MEMORIES (nắng vàng) ===================== -->
+  <section class="chapter ed t-gold no-deco" data-tone="gold">
+    <div class="ed-col">
+      <div class="memories reveal">
+        <svg class="laurel" viewBox="0 0 40 90" aria-hidden="true"><use href="#laurel"/></svg>
+        <div class="mem-txt"><b>WEDDING</b><span>MEMORIES</span></div>
+        <svg class="laurel flip" viewBox="0 0 40 90" aria-hidden="true"><use href="#laurel"/></svg>
+        <span class="sweet" aria-hidden="true">Sweet</span>
+      </div>
+      <p class="ed-center reveal" style="margin-top:1.6rem">Những khoảnh khắc trong nắng — những lá thư, tấm voan và nụ cười — chúng mình muốn giữ mãi.</p>
+      <div class="ls-collage">
+        <span class="ls-green" aria-hidden="true"></span>
+        <p class="ls-vert" aria-hidden="true">Forever begins here</p>
+        <h2 class="ls-title reveal">GOLDEN<br>MOMENTS</h2>
+        <figure class="ls-main zoom"><img src="thiep-cuoi-viet-anh-lan-vi/images/nang-3.jpg" alt="Hai bạn chung một tấm voan trong nắng chiều" loading="lazy"></figure>
+        <figure class="ls-small zoom reveal"><img src="thiep-cuoi-viet-anh-lan-vi/images/nang-1.jpg" alt="Hai bạn đứng hai bên đài phun nước đọc thư cho nhau" loading="lazy"></figure>
+        <figure class="ls-wide zoom mat reveal"><img src="thiep-cuoi-viet-anh-lan-vi/images/nang-2.jpg" alt="Hai bạn ôm nhau dưới tấm voan cạnh đài phun nước" loading="lazy"></figure>
+      </div>
     </div>
-    <div class="wide reveal">
-      <figure class="ph r"><img src="thiep-cuoi-viet-anh-lan-vi/images/nang-1.jpg" alt="Hai bạn đứng hai bên đài phun nước đọc thư cho nhau" loading="lazy"></figure>
+  </section>
+
+  <!-- ===================== ĐỒNG LÒNG GẮN BÓ ===================== -->
+  <section class="chapter ed t-cream" data-tone="cream">
+    <div class="ed-col">
+      <div class="tog-head reveal">
+        <h2 class="caps-title" style="margin:0">TOGETHER</h2>
+        <p class="tog-script">đồng lòng gắn bó</p>
+      </div>
+      <div class="mag">
+        <figure class="zoom big reveal"><img src="thiep-cuoi-viet-anh-lan-vi/images/nguoi-linh-3.jpg" alt="Việt Anh trong quân phục khoác tay Lan Vi" loading="lazy"></figure>
+        <figure class="zoom reveal"><img src="thiep-cuoi-viet-anh-lan-vi/images/nguoi-linh-1.jpg" alt="Hai bạn khoác tay nhau, Việt Anh mặc vest đen" loading="lazy"></figure>
+        <figure class="zoom reveal"><img src="thiep-cuoi-viet-anh-lan-vi/images/nguoi-linh-2.jpg" alt="Việt Anh nhìn Lan Vi mỉm cười" loading="lazy"></figure>
+      </div>
+      <p class="vi-verse center reveal">Thuận vợ thuận chồng, tát biển Đông cũng cạn.<br><em>— Ca dao</em></p>
     </div>
-    <div class="wrap">
-      <div class="side">
-        <figure class="ph arch reveal"><img src="thiep-cuoi-viet-anh-lan-vi/images/nang-3.jpg" alt="Hai bạn chung một tấm voan trong nắng chiều" loading="lazy"></figure>
-        <div class="text reveal">
-          <p class="quote">“Từ hôm nay, mọi buổi chiều đều có anh.”</p>
-          <p class="caption" style="font-style:normal;font-family:inherit">Đời dài, có em có&nbsp;anh,<br>Nắng mưa gì cũng thành&nbsp;lành.</p>
-          <svg class="sprig flip" viewBox="0 0 240 44"><use href="#sprig"/></svg>
+  </section>
+
+  <!-- ===================== VỀ CHUNG MỘT NHÀ ===================== -->
+  <section class="chapter ed no-deco" data-tone="red">
+      <div class="ed-col home">
+        <div class="fl-head reveal">
+          <span class="hy" aria-hidden="true">囍</span>
+          <h2 class="fl-title">VỀ CHUNG<br>MỘT NHÀ</h2>
         </div>
+        <p class="fl-poem reveal"><span class="nw">Mong rằng khi ngoảnh lại, ta vẫn có nhau.</span><br><span class="nw">Cùng nắm tay đi đến bạc đầu…</span></p>
+        <p class="dearest reveal"><span>MỘT NHÀ</span><i>·</i><span>MỘT LÒNG</span><i>·</i><span>TRỌN ĐỜI</span></p>
+        <div class="fl-photo">
+          <svg class="orn tl" aria-hidden="true"><use href="#corner"/></svg><svg class="orn br" aria-hidden="true"><use href="#corner"/></svg>
+          <figure class="zoom reveal"><img src="thiep-cuoi-viet-anh-lan-vi/images/net-xua.jpg" alt="Hai bạn trong áo cưới truyền thống bên chữ Hỷ" loading="lazy"></figure>
+          <p class="fl-script" aria-hidden="true"><span>Forever</span><span>together</span></p>
+        </div>
+        <p class="vi-verse center reveal">Yêu nhau tam tứ núi cũng trèo,<br>Thất bát sông cũng lội, tam thập lục đèo cũng qua.<br><em>— Ca dao</em></p>
       </div>
-    </div>
-    <div class="wide reveal">
-      <figure class="ph r"><img src="thiep-cuoi-viet-anh-lan-vi/images/nang-2.jpg" alt="Hai bạn ôm nhau dưới tấm voan cạnh đài phun nước" loading="lazy"></figure>
-    </div>
   </section>
 
-  <!-- ===================== CHƯƠNG 3 · HOÀNG HÔN ===================== -->
-  <section class="chapter" data-tone="sunset">
-    <div class="wrap narrow reveal">
-      <svg class="sprig" viewBox="0 0 240 44"><use href="#sprig"/></svg>
-      <span class="chap-no">Chương ba</span>
-      <h2 class="chap-title">Hoàng hôn bên hồ</h2>
-      <p class="lede">Cuộc đời tuy dài&nbsp;thế<br>Năm tháng vẫn đi&nbsp;qua<br>Như biển kia dẫu&nbsp;rộng<br>Mây vẫn bay về&nbsp;xa<br><em style="font-size:.8em;opacity:.7">— Xuân Quỳnh</em></p>
-    </div>
-    <div class="wide reveal">
-      <figure class="ph r"><img src="thiep-cuoi-viet-anh-lan-vi/images/hoang-hon-2.jpg" alt="Hai bạn nắm tay đi dạo bên hồ lúc hoàng hôn" loading="lazy"></figure>
-    </div>
-  </section>
-
-  <!-- ===================== CHƯƠNG 4 · LỜI HỨA ===================== -->
-  <section class="chapter" data-tone="white">
+  <!-- ===================== THIỆP MỜI ===================== -->
+  <section class="chapter" data-tone="red" id="ngay-cuoi" style="padding-top:1rem">
     <div class="wrap">
-      <div class="narrow reveal">
-        <svg class="sprig" viewBox="0 0 240 44"><use href="#sprig"/></svg>
-        <span class="chap-no">Chương bốn</span>
-        <h2 class="chap-title">Lời hứa</h2>
-        <p class="lede">Làm sao được tan&nbsp;ra<br>Thành trăm con sóng&nbsp;nhỏ<br>Giữa biển lớn tình&nbsp;yêu<br>Để ngàn năm còn&nbsp;vỗ<br><em style="font-size:.8em;opacity:.7">— Xuân Quỳnh</em></p>
-      </div>
-      <div class="duo even">
-        <figure class="ph r tilt-l reveal"><img src="thiep-cuoi-viet-anh-lan-vi/images/trang-1.jpg" alt="Ảnh cưới trong studio, Lan Vi ngồi, Việt Anh đứng phía sau" loading="lazy"></figure>
-        <figure class="ph r tilt-r reveal"><img src="thiep-cuoi-viet-anh-lan-vi/images/trang-2.jpg" alt="Hai bạn khoác tay nhau cười tươi trong studio" loading="lazy"></figure>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== CHƯƠNG 5 · ĐỒNG LÒNG ===================== -->
-  <section class="chapter" data-tone="garden">
-    <div class="wrap">
-      <div class="narrow reveal">
-        <svg class="sprig" viewBox="0 0 240 44"><use href="#sprig"/></svg>
-        <span class="chap-no">Chương năm</span>
-        <h2 class="chap-title">Đồng lòng gắn bó</h2>
-        <p class="lede">Một cây làm chẳng nên&nbsp;non,<br>Ba cây chụm lại nên hòn núi&nbsp;cao.<br>Thuận vợ thuận chồng đồng&nbsp;lòng,<br>Tát cạn biển Đông, hạnh phúc đủ&nbsp;đầy.<br><em style="font-size:.8em;opacity:.7">— Ca dao</em></p>
-      </div>
-      <div class="trio">
-        <figure class="ph arch reveal"><img src="thiep-cuoi-viet-anh-lan-vi/images/nguoi-linh-1.jpg" alt="Hai bạn khoác tay nhau, Việt Anh mặc vest đen" loading="lazy"></figure>
-        <figure class="ph r reveal"><img src="thiep-cuoi-viet-anh-lan-vi/images/nguoi-linh-2.jpg" alt="Việt Anh nhìn Lan Vi mỉm cười" loading="lazy"></figure>
-        <figure class="ph r reveal"><img src="thiep-cuoi-viet-anh-lan-vi/images/nguoi-linh-3.jpg" alt="Việt Anh khoác tay Lan Vi" loading="lazy"></figure>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== CHƯƠNG 6 · VỀ CHUNG MỘT NHÀ ===================== -->
-  <section class="chapter" data-tone="red" id="ngay-cuoi">
-    <div class="wrap">
-      <div class="narrow reveal">
-        <svg class="sprig" viewBox="0 0 240 44"><use href="#sprig"/></svg>
-        <span class="chap-no">Chương sáu</span>
-        <h2 class="chap-title">Về chung một nhà</h2>
-        <p class="lede">Yêu nhau tam tứ núi cũng&nbsp;trèo<br>Thất bát sông cũng&nbsp;lội<br>Tam thập lục đèo cũng&nbsp;qua<br>Xin mời bạn chung vui ngày&nbsp;cưới<br><em style="font-size:.8em;opacity:.7">— Ca dao</em></p>
-      </div>
-      <div class="single reveal">
-        <figure class="ph arch"><img src="thiep-cuoi-viet-anh-lan-vi/images/net-xua.jpg" alt="Hai bạn trong áo cưới truyền thống bên chữ Hỷ" loading="lazy"></figure>
-      </div>
-
       <!-- Tấm thiệp mời -->
-      <div class="frame invite-card reveal" style="margin-top:5rem">
+      <div class="frame invite-card reveal">
       <div class="shimmer" aria-hidden="true"></div>
         <svg class="orn tl"><use href="#corner"/></svg><svg class="orn tr"><use href="#corner"/></svg>
         <svg class="orn bl"><use href="#corner"/></svg><svg class="orn br"><use href="#corner"/></svg>
@@ -748,21 +925,25 @@ footer p{color:var(--soft)}
         <div class="thanks" id="thanks"><span class="big" aria-hidden="true">💕</span><p>Đã gửi xác nhận. Cảm ơn bạn thật nhiều!</p></div>
       </div>
 
-      <div class="narrow reveal" style="margin-top:5rem">
+      <div class="narrow reveal" style="margin-top:3rem">
         <h2 class="chap-title">Hộp mừng cưới</h2>
-        <p class="lede">Sự hiện diện của bạn là món quà quý nhất. Nếu ở xa, bạn có thể gửi lời chúc qua đây.</p>
+        <p class="lede">Sự hiện diện của bạn là món quà quý giá nhất.</p>
       </div>
       <div class="gifts one">
         <div class="frame gift reveal">
         <div class="shimmer" aria-hidden="true"></div>
           <svg class="orn tl"><use href="#corner"/></svg><svg class="orn br"><use href="#corner"/></svg>
-          <div class="avatar-duo">
-            <figure class="avatar"><img src="thiep-cuoi-viet-anh-lan-vi/images/chu-re.jpg" alt="Chú rể Trần Việt Anh" loading="lazy"></figure>
-            <figure class="avatar"><img src="thiep-cuoi-viet-anh-lan-vi/images/co-dau.jpg" alt="Cô dâu Trần Thị Lan Vi" loading="lazy"></figure>
-          </div>
-          <h3 class="gift-title">Hộp mừng cưới</h3>
-          <p class="lede" style="margin-bottom:1.1rem">Quét mã QR bên dưới để gửi lời chúc mừng.</p>
+          <figure class="gift-photo"><img src="thiep-cuoi-viet-anh-lan-vi/images/trang-3.jpg" alt="Việt Anh và Lan Vi trong studio" loading="lazy"></figure>
+          <h3 class="gift-title">Gửi lời chúc mừng</h3>
+          <p style="margin-bottom:1.1rem">Quét mã QR bên dưới để gửi lời chúc mừng đến chúng mình nhé</p>
           <figure class="qr"><img src="thiep-cuoi-viet-anh-lan-vi/images/qr-co-dau.png" alt="Mã QR chuyển khoản mừng cưới, Vietcombank, chủ tài khoản Trần Thị Lan Vi" loading="lazy"></figure>
+          <div class="bank">
+            <p><span class="k">NGÂN HÀNG</span>Thương mại Cổ phần Ngoại thương Việt Nam (Vietcombank)</p>
+            <p><span class="k">SỐ TÀI KHOẢN</span><span class="acc" id="accNo">1017221242</span></p>
+            <p><span class="k">NGƯỜI NHẬN</span>Trần Thị Lan Vi</p>
+          </div>
+          <button class="btn copy" type="button" data-target="accNo">Sao chép số tài khoản</button>
+          <p class="note" aria-live="polite"></p>
         </div>
       </div>
     </div>
@@ -800,7 +981,7 @@ footer p{color:var(--soft)}
       [['branch','branch r top',''],['branch','branch l low',''],['bloom','bloom lg','top:30%;left:6%'],['leaf','leaf','top:52%;right:6%;animation-delay:-4s'],['bloom','bloom','top:74%;right:9%;animation-delay:-1s'],['sparkle','spark','top:16%;right:16%;animation-delay:-.6s'],['sparkle','spark','top:70%;left:15%;animation-delay:-3s'],['gem','gem','top:60%;right:10%;animation-delay:-3.4s']],
       [['branch','branch l top',''],['branch','branch r mid',''],['branch','branch l low',''],['bloom','bloom','top:22%;right:8%'],['leaf','leaf','top:88%;right:7%'],['sparkle','spark','top:40%;left:13%;animation-delay:-2s'],['sparkle','spark','top:8%;right:20%;animation-delay:-1.8s'],['gem','gem','top:34%;left:9%;animation-delay:-2.6s']],
     ];
-    document.querySelectorAll('section.chapter, footer').forEach(function(sec,i){
+    document.querySelectorAll('section.chapter:not(.no-deco), footer').forEach(function(sec,i){
       var d=document.createElement('div'); d.className='deco-layer'; d.setAttribute('aria-hidden','true');
       d.innerHTML=sets[i%sets.length].map(function(x){ return U(x[0],x[1],x[2]); }).join('');
       sec.insertBefore(d,sec.firstChild);
@@ -827,7 +1008,7 @@ footer p{color:var(--soft)}
   var rz; addEventListener('resize',function(){ clearTimeout(rz); rz=setTimeout(fitPoems,150); });
   var tc=document.getElementById('themeColor');
   var VARS=['bg','ink','accent','soft','card','line','petal','mat'];
-  var HERO={bg:'#F3E6CC',ink:'#3A2A26',accent:'#A9824C',soft:'#7E6A5F',card:'#FFFDF8',line:'rgba(217,178,112,.55)',petal:'#F4C1C8',mat:'#FFFDF8'};
+  var HERO={bg:'#FBF3E6',ink:'#3A2A26',accent:'#A9824C',soft:'#7E6A5F',card:'#FFFDF8',line:'rgba(217,178,112,.55)',petal:'#F4C1C8',mat:'#FFFDF8'};
   function parse(c){
     c=c.trim();
     if(c[0]==='#'){ return [parseInt(c.substr(1,2),16),parseInt(c.substr(3,2),16),parseInt(c.substr(5,2),16),1]; }
@@ -891,7 +1072,7 @@ footer p{color:var(--soft)}
   /* ----- Xem ảnh lớn ----- */
   var lb=document.getElementById('lightbox'), lbImg=document.getElementById('lbImg');
   function closeLb(){ lb.classList.remove('open'); document.body.style.overflow=''; }
-  document.querySelectorAll('.ph img').forEach(function(img){
+  document.querySelectorAll('.ph img, .zoom img').forEach(function(img){
     img.parentNode.addEventListener('click',function(){
       lbImg.src=img.currentSrc||img.src; lbImg.alt=img.alt;
       lb.classList.add('open'); document.body.style.overflow='hidden';
