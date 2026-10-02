@@ -256,7 +256,7 @@ footer p{color:var(--soft)}
 .gate .orn{position:absolute;color:#B88A3E;width:3.8rem;height:3.8rem}
 .gate .orn.tl{top:22px;left:22px}.gate .orn.tr{top:22px;right:22px}.gate .orn.bl{bottom:22px;left:22px}.gate .orn.br{bottom:22px;right:22px}
 .gate .gsprig{width:11rem;color:#B88A3E;margin:0}
-.gate .g4{font-family:"Playfair Display",serif;font-style:italic;font-size:clamp(.78rem,3.8vw,1.05rem);line-height:1.8;letter-spacing:.02em;margin:0;color:#7A5A2C}
+.gate .g4{position:relative;z-index:1;font-family:"Playfair Display",serif;font-style:italic;font-size:clamp(.78rem,3.8vw,1.05rem);line-height:1.8;letter-spacing:.02em;margin:0;color:#7A5A2C}
 .gate .g1 i{font-style:normal;color:#D98A9B;-webkit-text-fill-color:#D98A9B;font-size:.7em;margin:0 .1em}
 .gate .g2{color:#9A7433}
 .gate .gd{letter-spacing:.34em;font-family:"Playfair Display",serif}
@@ -264,7 +264,7 @@ footer p{color:var(--soft)}
 .gate-sparks svg{position:absolute;width:1rem;height:1rem;color:#D4A84E;opacity:0;filter:drop-shadow(0 0 4px rgba(212,168,78,.8));animation:twinkleStar 3.4s ease-in-out infinite}
 .gate-sparks svg:nth-child(1){top:13%;left:18%}.gate-sparks svg:nth-child(2){top:20%;right:15%;animation-delay:-1.2s;width:.7rem;height:.7rem}.gate-sparks svg:nth-child(3){top:38%;left:8%;animation-delay:-2.1s;width:.7rem;height:.7rem}.gate-sparks svg:nth-child(4){top:46%;right:9%;animation-delay:-.6s}.gate-sparks svg:nth-child(5){bottom:22%;left:16%;animation-delay:-2.8s;width:.8rem;height:.8rem}.gate-sparks svg:nth-child(6){bottom:14%;right:20%;animation-delay:-1.8s}
 .gate.gone{opacity:0;visibility:hidden;pointer-events:none}
-.gate .g1{font-family:"Great Vibes",cursive;font-size:clamp(2.2rem,11vw,4.2rem);line-height:1.1;background:linear-gradient(180deg,#C9974A 10%,#8E5F1E 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;filter:drop-shadow(0 1px 6px rgba(184,138,62,.25))}
+.gate .g1{font-family:"Great Vibes",cursive;font-size:clamp(2.2rem,10vw,3.8rem);line-height:1.5;margin-top:.9rem;padding:.1em .3em .15em;background:linear-gradient(180deg,#C9974A 10%,#8E5F1E 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;filter:drop-shadow(0 1px 6px rgba(184,138,62,.25))}
 .gate .g2{font-size:.9rem;letter-spacing:.2em;opacity:.9}
 .gate .g-title{font-family:"Playfair Display",serif;font-size:clamp(1.35rem,6.4vw,2.1rem);letter-spacing:.12em;padding-left:.12em;color:#8A6420;white-space:nowrap;line-height:1.2}
 .gate .g3{margin-top:1.2rem;padding:.8rem 2rem;border:1px solid rgba(184,138,62,.8);border-radius:999px;color:#8A6420;background:rgba(255,255,255,.55);font-size:.95rem;letter-spacing:.08em;animation:gatepulse 1.8s ease-in-out infinite}
@@ -459,11 +459,10 @@ footer p{color:var(--soft)}
 .sweet{position:absolute;right:-.6rem;bottom:-.8rem;font-family:"Mr Dafoe","Great Vibes",cursive;font-size:clamp(3rem,15vw,4.6rem);color:var(--sweet,var(--hl));transform:rotate(-20deg);line-height:1;pointer-events:none}
 .ls-collage{position:relative;padding-bottom:1rem}
 .ls-green{position:absolute;top:2.4rem;left:4%;width:58%;height:42%;background:var(--block);z-index:0}
-.ls-main{position:relative;z-index:2;margin-left:13%;aspect-ratio:1/1}
-.ls-main img{object-position:62% 12%}
-.ls-wide{position:relative;z-index:2;width:78%;margin:1.4rem 0 0 auto}
-.ls-wide img{aspect-ratio:3/2}
-.ls-small{position:relative;z-index:3;width:64%;margin:-12% 0 0 -2%;padding:12px;background:#FFFDF8;box-shadow:0 18px 40px -26px rgba(40,20,10,.55)}
+.ls-main{position:relative;z-index:2;margin-left:8%;aspect-ratio:2/3}
+.ls-main img{object-position:50% 50%}
+.ls-collage .ls-green{height:55%}
+.ls-small{position:relative;z-index:3;width:66%;margin:-14% 0 0 -2%;padding:12px;background:#FFFDF8;box-shadow:0 18px 40px -26px rgba(40,20,10,.55)}
 .ls-small img{aspect-ratio:3/2}
 
 /* ---------- Together: lưới tạp chí ---------- */
@@ -500,7 +499,7 @@ footer p{color:var(--soft)}
 /* ---------- Hộp mừng cưới: 1 ảnh + thông tin tài khoản ---------- */
 .gift-photo{width:min(15rem,82%);aspect-ratio:3/4;margin:0 auto 1.3rem;padding:6px;background:#fff;border-radius:999px 999px 10px 10px;box-shadow:0 18px 34px -20px rgba(40,20,10,.6);position:relative}
 .gift-photo::after{content:"";position:absolute;inset:3px;border:1px solid rgba(169,130,76,.5);border-radius:999px 999px 8px 8px;pointer-events:none}
-.gift-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 35%;border-radius:999px 999px 7px 7px}
+.gift-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 92%;border-radius:999px 999px 7px 7px}
 .bank{margin:1.2rem auto 0;max-width:20rem;text-align:left;border-top:1px solid rgba(169,130,76,.4);padding-top:1rem;font-size:.92rem;line-height:1.6;color:#3A2A26}
 .bank p{margin:.35rem 0}
 .bank .k{display:block;font-size:.74rem;letter-spacing:.14em;color:#A9824C}
@@ -554,9 +553,10 @@ body{font-size:.95rem;line-height:1.7}
 .rsvp{margin-top:1.4rem}
 .gifts{margin-top:1.4rem}
 .gift{padding:2.4rem 1.3rem 2rem}
-.gift-photo{width:min(13rem,76%)}
+.gift-photo{width:min(17rem,86%);aspect-ratio:4/5}
 footer{padding-top:2rem}
 footer .script{font-size:clamp(2.2rem,8.6vw,3rem)}
+@media (min-width:48rem){.he-bottom{max-width:34rem;margin:0 auto}}
 .invite-card .seal{margin:-.6rem auto 1.1rem}
 @media (max-width:40rem){
   .chapter{padding:2.8rem 0 2.4rem}
@@ -788,7 +788,6 @@ footer .script{font-size:clamp(2.2rem,8.6vw,3rem)}
         <h2 class="ls-title reveal">GOLDEN<br>MOMENTS</h2>
         <figure class="ls-main zoom"><img src="thiep-cuoi-viet-anh-lan-vi/images/nang-3.jpg" alt="Hai bạn chung một tấm voan trong nắng chiều" loading="lazy"></figure>
         <figure class="ls-small zoom reveal"><img src="thiep-cuoi-viet-anh-lan-vi/images/nang-1.jpg" alt="Hai bạn đứng hai bên đài phun nước đọc thư cho nhau" loading="lazy"></figure>
-        <figure class="ls-wide zoom mat reveal"><img src="thiep-cuoi-viet-anh-lan-vi/images/nang-2.jpg" alt="Hai bạn ôm nhau dưới tấm voan cạnh đài phun nước" loading="lazy"></figure>
       </div>
     </div>
   </section>
