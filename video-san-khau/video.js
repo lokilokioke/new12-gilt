@@ -244,23 +244,23 @@ const SC = [
     c0: [0.5, 0.52], c1: [0.5, 0.45], z0: 1.0, z1: 1.12 },
   { type: 'panels', ps: ['vuon-2', 'vuon-3'], s: 42, e: 46, tin: ['push', 1.5], cap: ['Cùng nhau học tập, cùng nhau trưởng thành'] },
   { type: 'tilt', p: 'vuon-1', s: 46, e: 49, tin: ['blurDissolve', 2] },
-  { type: 'kb', p: 'nang-2', s: 49, e: 52, tin: ['leak', 2], c0: [0.55, 0.5], c1: [0.7, 0.42], z0: 1.04, z1: 1.18,
+  { type: 'kb', p: 'hero', s: 49, e: 52, tin: ['leak', 2], c0: [0.5, 0.5], c1: [0.55, 0.46], z0: 1.0, z1: 1.08,
     cap: ['Yêu nhau tam tứ núi cũng trèo,', 'thất bát sông cũng lội, tam thập lục đèo cũng qua'] },
-  { type: 'kb', p: 'hero', s: 52, e: 55, tin: ['softWipe', 2], c0: [0.55, 0.34], c1: [0.66, 0.32], z0: 1.16, z1: 1.28 },
+  { type: 'kb', p: 'nang-3', s: 52, e: 55, tin: ['softWipe', 2], c0: [0.6, 0.50], c1: [0.6, 0.42], z0: 1.0, z1: 1.1 },
   { type: 'kb', p: 'hoang-hon-2', s: 55, e: 59, tin: ['bloom', 2], chapter: ['CHƯƠNG IV', 'Mãi mãi'],
     c0: [0.5, 0.5], c1: [0.62, 0.47], z0: 1.0, z1: 1.15, cap: ['Để cả hai trở thành phiên bản tốt hơn của chính mình'], capAt: 4.2 },
-  // Đoạn nhạc nhanh: đổi ảnh theo từng 2 phách, hoà tan ngắn đúng phách, đi kem → trắng → vườn nắng.
-  { type: 'montage', s: 59, e: 67, tin: ['blurDissolve', 2], xf: 0.3, slots: [
-    ['them-6', 2], ['them-8', 2], ['chu-re', 2], ['nguoi-linh-2', 2],
-    ['them-5', 2], ['nguoi-linh-1', 2], ['them-10', 2], ['them-9', 2, 0.50, 0.36],
-    ['trang-2', 2], ['trang-3', 2], ['vuon-2', 2], ['vuon-1', 2],
-    ['nang-2', 2], ['nang-1', 2], ['them-7', 4]] },
-  // Dồn nhịp: lướt lại cả chặng đường, mỗi phách một ảnh, phủ màu ký ức.
-  { type: 'montage', s: 67, e: 69, tin: ['bloom', 1], xf: 0.16, mem: true, slots: [
-    ['co-dau', 1], ['nguoi-linh-3', 1], ['net-xua', 1], ['them-4', 1],
-    ['them-3', 1], ['them-2', 1], ['vuon-3', 1], ['hoang-hon-2', 1]] },
-  // Cao trào: loé sáng mở ra những khoảnh khắc đẹp nhất, chuyển động chậm.
-  { type: 'kb', p: 'hero', s: 69, e: 71, tin: ['bloom', 2], c0: [0.58, 0.40], c1: [0.66, 0.33], z0: 1.0, z1: 1.2 },
+  // 2:29–2:40: mỗi 2 phách một ảnh đôi, gom theo chủ đề (studio trắng → studio kem → quân phục → áo truyền thống → vườn),
+  // cô dâu chú rể luôn ở giữa khung. Ô: [ảnh, số phách, tâm x, tâm y, zoom]
+  { type: 'montage', s: 59, e: 63, tin: ['blurDissolve', 2], xf: 0.3, slots: [
+    ['trang-2', 2, 0.47, 0.30, 1.2], ['them-10', 2, 0.43, 0.35, 1.2],
+    ['them-6', 2, 0.44, 0.35, 1.2], ['nguoi-linh-3', 2, 0.44, 0.30, 1.2],
+    ['net-xua', 2, 0.51, 0.37, 1.2], ['them-4', 2, 0.42, 0.44, 1.2],
+    ['vuon-3', 2, 0.47, 0.63, 1.45], ['vuon-1', 2, 0.60, 0.60, 1.3]] },
+  // Từ 2:40: ít chuyển cảnh, chỉ những ảnh toàn cảnh đẹp nhất, chuyển động chậm.
+  { type: 'kb', p: 'nang-2', s: 63, e: 66, tin: ['leak', 2], c0: [0.55, 0.5], c1: [0.68, 0.44], z0: 1.0, z1: 1.14 },
+  { type: 'kb', p: 'them-7', s: 66, e: 69, tin: ['blurDissolve', 3], c0: [0.5, 0.5], c1: [0.62, 0.46], z0: 1.0, z1: 1.12 },
+  // Nhạc bật cao nhất (2:54): loé sáng mở ra cảnh hôn dưới khăn voan.
+  { type: 'kb', p: 'hero', s: 69, e: 71, tin: ['bloom', 2], c0: [0.58, 0.40], c1: [0.66, 0.33], z0: 1.1, z1: 1.25 },
   { type: 'finale', p: 'them-1', s: 71, e: null, tin: ['leak', 3] },
 ];
 for (const s of SC) {
@@ -319,10 +319,14 @@ function drawPanels(ctx, s, lt, dur) {
 
 // Đoạn dựng nhanh: mỗi ô là một ảnh, hoà tan ngắn đúng phách; khung luôn giữ gương mặt, máy quay trôi xen kẽ hướng.
 function montageShot(ctx, s, k, ls) {
-  const [name, beats, cx, cy] = s.slots[k], ph = P[name], len = beats * BEAT;
-  const land = ph.img.naturalWidth > ph.img.naturalHeight;
+  const [name, beats, cx, cy, cz] = s.slots[k], ph = P[name], len = beats * BEAT;
+  const u = clamp((ls + s.xf) / (len + 2 * s.xf));
+  if (cz) { // khung căn giữa cặp đôi: chỉ đẩy máy nhẹ vào giữa, không trôi ngang
+    drawCover(ctx, ph, 0, 0, W, H, cx, cy, lerp(cz, cz * 1.06, u));
+    return;
+  }
+  const land = ph.img.naturalWidth > ph.img.naturalHeight, dir = k % 2 ? 1 : -1;
   const x = cx ?? ph.fx, y = cy ?? (land ? ph.fy : ph.fy + 0.10);
-  const u = clamp((ls + s.xf) / (len + 2 * s.xf)), dir = k % 2 ? 1 : -1;
   const z = k % 3 === 2 ? lerp(1.1, 1.03, u) : lerp(1.02, 1.09, u);
   drawCover(ctx, ph, 0, 0, W, H, x + dir * lerp(-0.012, 0.012, u), y, z);
 }
@@ -333,10 +337,6 @@ function drawMontage(ctx, s, lt) {
   const a = k > 0 ? smooth(st[k] - s.xf / 2, st[k] + s.xf / 2, lt) : 1;
   if (a < 1) montageShot(ctx, s, k - 1, lt - st[k - 1]);
   ctx.globalAlpha = a; montageShot(ctx, s, k, lt - st[k]); ctx.globalAlpha = 1;
-  if (s.mem) { // màu ký ức: ấm, hơi bạc
-    ctx.globalCompositeOperation = 'soft-light'; ctx.fillStyle = 'rgba(214,160,96,0.55)'; ctx.fillRect(0, 0, W, H);
-    ctx.globalCompositeOperation = 'source-over';
-  }
 }
 
 function drawIntro(ctx, s, lt) {
@@ -507,8 +507,8 @@ let BUF_A, BUF_B;
 
 function dustLevel(t) {
   if (t < bar(5)) return 1.0;
-  if (t >= bar(59) && t < bar(69)) return 0.3;
-  if (t >= bar(69)) return lerp(0.5, 1.0, smooth(bar(71) + 8.5, bar(71) + 12.5, t));
+  if (t >= bar(59) && t < bar(63)) return 0.3;
+  if (t >= bar(63)) return lerp(0.5, 1.0, smooth(bar(71) + 8.5, bar(71) + 12.5, t));
   return 0.45;
 }
 
