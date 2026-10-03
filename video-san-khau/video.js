@@ -249,13 +249,19 @@ const SC = [
   { type: 'kb', p: 'hero', s: 52, e: 55, tin: ['softWipe', 2], c0: [0.55, 0.34], c1: [0.66, 0.32], z0: 1.16, z1: 1.28 },
   { type: 'kb', p: 'hoang-hon-2', s: 55, e: 59, tin: ['bloom', 2], chapter: ['CHƯƠNG IV', 'Mãi mãi'],
     c0: [0.5, 0.5], c1: [0.62, 0.47], z0: 1.0, z1: 1.15, cap: ['Để cả hai trở thành phiên bản tốt hơn của chính mình'], capAt: 4.2 },
-  // Cao trào: ít cảnh hơn, mỗi cảnh trọn 2 ô nhịp, đi theo nhiệt màu kem → trắng → vườn nắng → hoàng hôn
-  { type: 'tilt', p: 'them-6', s: 59, e: 61, tin: ['blurDissolve', 3], y0: 0.45, y1: 0.36 },
-  { type: 'panels', ps: ['chu-re', 'them-8'], s: 61, e: 63, tin: ['softWipe', 2] },
-  { type: 'frame', p: 'them-9', s: 63, e: 65, tin: ['bloom', 2] },
-  { type: 'tilt', p: 'them-10', s: 65, e: 67, tin: ['blurDissolve', 2], y0: 0.46, y1: 0.37, cap: ['Nắm tay nhau, đi hết những ngày bình yên'] },
-  { type: 'kb', p: 'them-7', s: 67, e: 70, tin: ['leak', 3], c0: [0.52, 0.5], c1: [0.64, 0.46], z0: 1.0, z1: 1.16 },
-  { type: 'finale', p: 'them-1', s: 70, e: null, tin: ['bloom', 3] },
+  // Đoạn nhạc nhanh: đổi ảnh theo từng 2 phách, hoà tan ngắn đúng phách, đi kem → trắng → vườn nắng.
+  { type: 'montage', s: 59, e: 67, tin: ['blurDissolve', 2], xf: 0.3, slots: [
+    ['them-6', 2], ['them-8', 2], ['chu-re', 2], ['nguoi-linh-2', 2],
+    ['them-5', 2], ['nguoi-linh-1', 2], ['them-10', 2], ['them-9', 2, 0.50, 0.36],
+    ['trang-2', 2], ['trang-3', 2], ['vuon-2', 2], ['vuon-1', 2],
+    ['nang-2', 2], ['nang-1', 2], ['them-7', 4]] },
+  // Dồn nhịp: lướt lại cả chặng đường, mỗi phách một ảnh, phủ màu ký ức.
+  { type: 'montage', s: 67, e: 69, tin: ['bloom', 1], xf: 0.16, mem: true, slots: [
+    ['co-dau', 1], ['nguoi-linh-3', 1], ['net-xua', 1], ['them-4', 1],
+    ['them-3', 1], ['them-2', 1], ['vuon-3', 1], ['hoang-hon-2', 1]] },
+  // Cao trào: loé sáng mở ra những khoảnh khắc đẹp nhất, chuyển động chậm.
+  { type: 'kb', p: 'hero', s: 69, e: 71, tin: ['bloom', 2], c0: [0.58, 0.40], c1: [0.66, 0.33], z0: 1.0, z1: 1.2 },
+  { type: 'finale', p: 'them-1', s: 71, e: null, tin: ['leak', 3] },
 ];
 for (const s of SC) {
   s.t0 = bar(s.s); s.t1 = s.e == null ? END : bar(s.e);
@@ -311,22 +317,26 @@ function drawPanels(ctx, s, lt, dur) {
   });
 }
 
-// Ảnh dọc đặt trọn trong khung giữa màn hình, nền là chính ảnh đó nhoè và tối: giữ được toàn bộ bố cục.
-function drawFrame(ctx, buf, s, lt, dur, slot) {
-  const ph = P[s.p], u = motion(lt, dur);
-  drawCover(ctx, ph, 0, 0, W, H, ph.fx, lerp(0.55, 0.45, u), lerp(1.12, 1.2, u));
-  ctx.drawImage(blurOf(buf, 14, 'fr' + slot), 0, 0, W, H);
-  ctx.globalCompositeOperation = 'multiply'; ctx.fillStyle = '#bb9264'; ctx.fillRect(0, 0, W, H);
-  ctx.globalCompositeOperation = 'source-over'; ctx.fillStyle = 'rgba(20,12,6,0.18)'; ctx.fillRect(0, 0, W, H);
-  const iw = ph.img.naturalWidth, ih = ph.img.naturalHeight, z = lerp(1.0, 1.04, u);
-  const fh = H * 0.86 * z, fw = fh * iw / ih, x = (W - fw) / 2, y = (H - fh) / 2;
-  ctx.save();
-  ctx.shadowColor = 'rgba(0,0,0,0.55)'; ctx.shadowBlur = 50; ctx.shadowOffsetY = 14;
-  ctx.fillStyle = '#000'; ctx.fillRect(x, y, fw, fh);
-  ctx.restore();
-  ctx.drawImage(ph.img, x, y, fw, fh);
-  ctx.strokeStyle = 'rgba(236,202,140,0.75)'; ctx.lineWidth = 2;
-  ctx.strokeRect(x - 14, y - 14, fw + 28, fh + 28);
+// Đoạn dựng nhanh: mỗi ô là một ảnh, hoà tan ngắn đúng phách; khung luôn giữ gương mặt, máy quay trôi xen kẽ hướng.
+function montageShot(ctx, s, k, ls) {
+  const [name, beats, cx, cy] = s.slots[k], ph = P[name], len = beats * BEAT;
+  const land = ph.img.naturalWidth > ph.img.naturalHeight;
+  const x = cx ?? ph.fx, y = cy ?? (land ? ph.fy : ph.fy + 0.10);
+  const u = clamp((ls + s.xf) / (len + 2 * s.xf)), dir = k % 2 ? 1 : -1;
+  const z = k % 3 === 2 ? lerp(1.1, 1.03, u) : lerp(1.02, 1.09, u);
+  drawCover(ctx, ph, 0, 0, W, H, x + dir * lerp(-0.012, 0.012, u), y, z);
+}
+function drawMontage(ctx, s, lt) {
+  let acc = 0, k = 0;
+  const st = s.slots.map(sl => { const v = acc; acc += sl[1] * BEAT; return v; });
+  while (k < st.length - 1 && lt >= st[k + 1] - s.xf / 2) k++;
+  const a = k > 0 ? smooth(st[k] - s.xf / 2, st[k] + s.xf / 2, lt) : 1;
+  if (a < 1) montageShot(ctx, s, k - 1, lt - st[k - 1]);
+  ctx.globalAlpha = a; montageShot(ctx, s, k, lt - st[k]); ctx.globalAlpha = 1;
+  if (s.mem) { // màu ký ức: ấm, hơi bạc
+    ctx.globalCompositeOperation = 'soft-light'; ctx.fillStyle = 'rgba(214,160,96,0.55)'; ctx.fillRect(0, 0, W, H);
+    ctx.globalCompositeOperation = 'source-over';
+  }
 }
 
 function drawIntro(ctx, s, lt) {
@@ -352,22 +362,22 @@ function drawIntro(ctx, s, lt) {
 }
 
 function drawFinale(ctx, buf, s, lt) {
-  const ph = P[s.p], u = cam(clamp((lt + 1.5) / 20));
-  drawCover(ctx, ph, 0, 0, W, H, ph.fx, lerp(0.68, 0.47, u), lerp(1.0, 1.1, cam(clamp((lt + 1.5) / 31))));
-  const capA = fadeWin(lt, 2.0, 3.0, 10.0, 11.0);
+  const ph = P[s.p], u = cam(clamp((lt + 1.5) / 14));
+  drawCover(ctx, ph, 0, 0, W, H, ph.fx, lerp(0.62, 0.47, u), lerp(1.0, 1.12, cam(clamp((lt + 1.5) / 25))));
+  const capA = fadeWin(lt, 1.2, 2.2, 7.8, 8.8);
   if (capA > 0) {
     ctx.globalAlpha = capA; ctx.drawImage(BOTTOM, 0, H - 460); ctx.globalAlpha = 1;
     drawFade(ctx, SPR.finaleCap[0], W / 2, 950, capA, 12);
   }
-  const b = smooth(11.5, 14.2, lt);
+  const b = smooth(8.6, 11.0, lt);
   if (b > 0) {
     ctx.globalAlpha = b; ctx.drawImage(blurOf(buf, 9, 'fin'), 0, 0, W, H); ctx.globalAlpha = 1;
     ctx.fillStyle = `rgba(10,6,4,${0.52 * b})`; ctx.fillRect(0, 0, W, H);
   }
-  drawReveal(ctx, SPR.endNames, W / 2, 470, smooth(13.2, 16.2, lt));
-  ornament(ctx, W / 2, 598, 300 * easeOut((lt - 15.6) / 1.4), smooth(15.6, 16.1, lt));
-  drawFade(ctx, SPR.thanks, W / 2, 670, smooth(16.0, 17.3, lt));
-  drawFade(ctx, SPR.endDate, W / 2, 748, smooth(16.8, 18.0, lt));
+  drawReveal(ctx, SPR.endNames, W / 2, 470, smooth(10.0, 13.0, lt));
+  ornament(ctx, W / 2, 598, 300 * easeOut((lt - 12.4) / 1.4), smooth(12.4, 12.9, lt));
+  drawFade(ctx, SPR.thanks, W / 2, 670, smooth(12.8, 14.1, lt));
+  drawFade(ctx, SPR.endDate, W / 2, 748, smooth(13.6, 14.8, lt));
 }
 
 // Tiêu đề chương: cảnh mở đầu chương bắt đầu nhoè & tối, chữ hiện lên rồi "kéo nét" về rõ.
@@ -400,7 +410,7 @@ function renderScene(s, buf, t, slot) {
     case 'tilt': drawTilt(ctx, s, lt, dur); break;
     case 'kb': drawKB(ctx, s, lt, dur); break;
     case 'panels': drawPanels(ctx, s, lt, dur); break;
-    case 'frame': drawFrame(ctx, buf, s, lt, dur, slot); break;
+    case 'montage': drawMontage(ctx, s, lt); break;
     case 'finale': drawFinale(ctx, buf, s, lt); break;
   }
   if (s.chapter) chapterOverlay(ctx, buf, s, lt, slot);
@@ -497,7 +507,8 @@ let BUF_A, BUF_B;
 
 function dustLevel(t) {
   if (t < bar(5)) return 1.0;
-  if (t >= bar(70)) return lerp(0.45, 1.0, smooth(bar(70) + 11, bar(70) + 15, t));
+  if (t >= bar(59) && t < bar(69)) return 0.3;
+  if (t >= bar(69)) return lerp(0.5, 1.0, smooth(bar(71) + 8.5, bar(71) + 12.5, t));
   return 0.45;
 }
 
