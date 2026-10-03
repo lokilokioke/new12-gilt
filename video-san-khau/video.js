@@ -240,27 +240,26 @@ const SC = [
   { type: 'tilt', p: 'them-3', s: 26, e: 30, tin: ['zoomPush', 1.5], down: true },
   { type: 'tilt', p: 'them-2', s: 30, e: 34, tin: ['softWipe', 2], cap: ['Thuận vợ thuận chồng, tát biển Đông cũng cạn'] },
   { type: 'tilt', p: 'them-4', s: 34, e: 38, tin: ['iris', 2] },
-  { type: 'kb', p: 'nang-1', s: 38, e: 42, tin: ['bloom', 2], chapter: ['CHƯƠNG III', 'Hẹn ước'],
-    c0: [0.5, 0.52], c1: [0.5, 0.45], z0: 1.0, z1: 1.12 },
+  { type: 'kb', p: 'hero', s: 38, e: 42, tin: ['bloom', 2], chapter: ['CHƯƠNG III', 'Hẹn ước'],
+    c0: [0.62, 0.42], c1: [0.66, 0.37], z0: 1.06, z1: 1.16 },
   { type: 'panels', ps: ['vuon-2', 'vuon-3'], s: 42, e: 46, tin: ['push', 1.5], cap: ['Cùng nhau học tập, cùng nhau trưởng thành'] },
-  { type: 'tilt', p: 'vuon-1', s: 46, e: 49, tin: ['blurDissolve', 2] },
-  { type: 'kb', p: 'hero', s: 49, e: 52, tin: ['leak', 2], c0: [0.5, 0.5], c1: [0.55, 0.46], z0: 1.0, z1: 1.08,
+  { type: 'tilt', p: 'vuon-1', s: 46, e: 50, tin: ['blurDissolve', 2], y0: 0.64, y1: 0.57 },
+  { type: 'kb', p: 'nang-3', s: 50, e: 55, tin: ['leak', 2], c0: [0.6, 0.54], c1: [0.6, 0.40], z0: 1.0, z1: 1.12, capAt: 2.0,
     cap: ['Yêu nhau tam tứ núi cũng trèo,', 'thất bát sông cũng lội, tam thập lục đèo cũng qua'] },
-  { type: 'kb', p: 'nang-3', s: 52, e: 55, tin: ['softWipe', 2], c0: [0.6, 0.50], c1: [0.6, 0.42], z0: 1.0, z1: 1.1 },
   { type: 'kb', p: 'hoang-hon-2', s: 55, e: 59, tin: ['bloom', 2], chapter: ['CHƯƠNG IV', 'Mãi mãi'],
     c0: [0.5, 0.5], c1: [0.62, 0.47], z0: 1.0, z1: 1.15, cap: ['Để cả hai trở thành phiên bản tốt hơn của chính mình'], capAt: 4.2 },
-  // 2:29–2:40: mỗi 2 phách một ảnh đôi, gom theo chủ đề (studio trắng → studio kem → quân phục → áo truyền thống → vườn),
-  // cô dâu chú rể luôn ở giữa khung. Ô: [ảnh, số phách, tâm x, tâm y, zoom]
+  // 2:29–2:40: mỗi 2 phách một ảnh đôi, gom theo chủ đề (studio trắng → kem → quân phục → áo truyền thống → vườn).
+  // Khung đồng bộ: cặp đôi giữa khung, gương mặt luôn ở 30% chiều cao từ trên xuống. Ô: [ảnh, phách, tâm x cặp đôi, y gương mặt, zoom]
   { type: 'montage', s: 59, e: 63, tin: ['blurDissolve', 2], xf: 0.3, slots: [
-    ['trang-2', 2, 0.47, 0.30, 1.2], ['them-10', 2, 0.43, 0.35, 1.2],
-    ['them-6', 2, 0.44, 0.35, 1.2], ['nguoi-linh-3', 2, 0.44, 0.30, 1.2],
-    ['net-xua', 2, 0.51, 0.37, 1.2], ['them-4', 2, 0.42, 0.44, 1.2],
-    ['vuon-3', 2, 0.47, 0.63, 1.45], ['vuon-1', 2, 0.60, 0.60, 1.3]] },
-  // Từ 2:40: ít chuyển cảnh, chỉ những ảnh toàn cảnh đẹp nhất, chuyển động chậm.
-  { type: 'kb', p: 'nang-2', s: 63, e: 66, tin: ['leak', 2], c0: [0.55, 0.5], c1: [0.68, 0.44], z0: 1.0, z1: 1.14 },
+    ['trang-2', 2, 0.47, 0.24, 1.12], ['them-10', 2, 0.43, 0.285, 1.12],
+    ['them-6', 2, 0.44, 0.285, 1.12], ['nguoi-linh-3', 2, 0.44, 0.23, 1.12],
+    ['net-xua', 2, 0.51, 0.30, 1.12], ['vuon-2', 2, 0.47, 0.51, 1.4],
+    ['vuon-3', 2, 0.47, 0.565, 1.4], ['vuon-1', 2, 0.60, 0.53, 1.3]] },
+  // Từ 2:40: toàn cảnh vườn nắng kể nốt câu chuyện — lời thề → ôm trong khăn voan → nụ hôn → hoàng hôn.
+  { type: 'kb', p: 'nang-1', s: 63, e: 66, tin: ['leak', 2], c0: [0.5, 0.56], c1: [0.5, 0.48], z0: 1.0, z1: 1.12 },
   { type: 'kb', p: 'them-7', s: 66, e: 69, tin: ['blurDissolve', 3], c0: [0.5, 0.5], c1: [0.62, 0.46], z0: 1.0, z1: 1.12 },
-  // Nhạc bật cao nhất (2:54): loé sáng mở ra cảnh hôn dưới khăn voan.
-  { type: 'kb', p: 'hero', s: 69, e: 71, tin: ['bloom', 2], c0: [0.58, 0.40], c1: [0.66, 0.33], z0: 1.1, z1: 1.25 },
+  // Nhạc bật cao nhất (2:54): loé sáng mở ra nụ hôn bên đài phun nước.
+  { type: 'kb', p: 'nang-2', s: 69, e: 71, tin: ['bloom', 2], c0: [0.55, 0.5], c1: [0.68, 0.43], z0: 1.0, z1: 1.16 },
   { type: 'finale', p: 'them-1', s: 71, e: null, tin: ['leak', 3] },
 ];
 for (const s of SC) {
@@ -319,10 +318,12 @@ function drawPanels(ctx, s, lt, dur) {
 
 // Đoạn dựng nhanh: mỗi ô là một ảnh, hoà tan ngắn đúng phách; khung luôn giữ gương mặt, máy quay trôi xen kẽ hướng.
 function montageShot(ctx, s, k, ls) {
-  const [name, beats, cx, cy, cz] = s.slots[k], ph = P[name], len = beats * BEAT;
+  const [name, beats, cx, fy, cz] = s.slots[k], ph = P[name], len = beats * BEAT;
   const u = clamp((ls + s.xf) / (len + 2 * s.xf));
-  if (cz) { // khung căn giữa cặp đôi: chỉ đẩy máy nhẹ vào giữa, không trôi ngang
-    drawCover(ctx, ph, 0, 0, W, H, cx, cy, lerp(cz, cz * 1.06, u));
+  if (cz) { // khung căn giữa cặp đôi: đẩy máy rất nhẹ, gương mặt giữ ở 30% chiều cao khung
+    const z = lerp(cz, cz * 1.04, u), iw = ph.img.naturalWidth, ih = ph.img.naturalHeight;
+    const vh = H / (Math.max(W / iw, H / ih) * z * ih);
+    drawCover(ctx, ph, 0, 0, W, H, cx, fy + 0.2 * vh, z);
     return;
   }
   const land = ph.img.naturalWidth > ph.img.naturalHeight, dir = k % 2 ? 1 : -1;
@@ -363,11 +364,11 @@ function drawIntro(ctx, s, lt) {
 
 function drawFinale(ctx, buf, s, lt) {
   const ph = P[s.p], u = cam(clamp((lt + 1.5) / 14));
-  drawCover(ctx, ph, 0, 0, W, H, ph.fx, lerp(0.62, 0.47, u), lerp(1.0, 1.12, cam(clamp((lt + 1.5) / 25))));
+  drawCover(ctx, ph, 0, 0, W, H, ph.fx, lerp(0.56, 0.40, u), lerp(1.0, 1.12, cam(clamp((lt + 1.5) / 25))));
   const capA = fadeWin(lt, 1.2, 2.2, 7.8, 8.8);
   if (capA > 0) {
     ctx.globalAlpha = capA; ctx.drawImage(BOTTOM, 0, H - 460); ctx.globalAlpha = 1;
-    drawFade(ctx, SPR.finaleCap[0], W / 2, 950, capA, 12);
+    drawFade(ctx, SPR.finaleCap[0], W / 2, 880, capA, 12);
   }
   const b = smooth(8.6, 11.0, lt);
   if (b > 0) {
@@ -538,6 +539,9 @@ function render(t) {
   CTX.translate(-Math.floor(R() * 256), -Math.floor(R() * 256));
   CTX.fillRect(0, 0, W + 256, H + 256);
   CTX.restore();
+  // khung điện ảnh 2.39:1 khép dần vào từ 2:40 đến hết
+  const lb = smooth(bar(63) - 1, bar(63) + 1.5, t);
+  if (lb > 0) { CTX.fillStyle = '#000'; const h = 138 * lb; CTX.fillRect(0, 0, W, h); CTX.fillRect(0, H - h, W, h); }
   // mở đầu & kết thúc
   const fb = Math.max(1 - smooth(0, 0.6, t), smooth(END - 3.2, END - 0.2, t));
   if (fb > 0) { CTX.fillStyle = `rgba(0,0,0,${fb})`; CTX.fillRect(0, 0, W, H); }
