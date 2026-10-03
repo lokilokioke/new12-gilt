@@ -47,6 +47,7 @@ const PHOTOS = {
   'net-xua': [0.50, 0.33], 'them-3': [0.50, 0.33], 'them-2': [0.60, 0.42], 'them-4': [0.55, 0.32],
   'them-1': [0.55, 0.43],
   'vuon-1': [0.60, 0.52], 'vuon-2': [0.50, 0.53], 'vuon-3': [0.50, 0.53], 'nang-3': [0.55, 0.42],
+  'them-6': [0.43, 0.28], 'them-7': [0.65, 0.55], 'them-8': [0.42, 0.31], 'them-9': [0.55, 0.38], 'them-10': [0.48, 0.29],
   'hero': [0.62, 0.33], 'hoang-hon-2': [0.62, 0.45], 'nang-1': [0.50, 0.47], 'nang-2': [0.72, 0.42],
 };
 const P = {};
@@ -249,9 +250,24 @@ const SC = [
   { type: 'kb', p: 'hoang-hon-2', s: 55, e: 59, tin: ['bloom', 2], chapter: ['CHƯƠNG IV', 'Mãi mãi'],
     c0: [0.5, 0.5], c1: [0.62, 0.47], z0: 1.0, z1: 1.15, cap: ['Để cả hai trở thành phiên bản tốt hơn của chính mình'], capAt: 4.2 },
   { type: 'montage', s: 59, e: 70, tin: ['zoomPush', 1], slots: [
-    ['chu-re', 2], ['co-dau', 2], ['them-5', 2], ['nguoi-linh-1', 2], ['nguoi-linh-2', 2], ['nguoi-linh-3', 2],
-    ['trang-2', 2], ['trang-3', 2], ['net-xua', 2], ['them-3', 2], ['them-2', 2], ['them-4', 2],
-    ['nang-1', 2], ['vuon-2', 2], ['vuon-3', 2], ['vuon-1', 2], ['nang-2', 4], ['hero', 4, 0.16], ['nang-3', 4]] },
+    // [ảnh, số phách, tâm đầu x,y, zoom đầu, tâm cuối x,y, zoom cuối]  (zoom 1 = phủ kín khung)
+    ['them-6', 2, 0.43, 0.38, 1.00, 0.43, 0.36, 1.06],
+    ['them-6', 2, 0.43, 0.29, 1.45, 0.43, 0.28, 1.58],
+    ['them-6', 2, 0.50, 0.50, 1.12, 0.50, 0.46, 1.22],
+    ['them-6', 2, 0.55, 0.28, 1.50, 0.52, 0.28, 1.62],
+    ['them-9', 2, 0.55, 0.38, 1.00, 0.55, 0.35, 1.07],
+    ['them-9', 2, 0.72, 0.27, 1.50, 0.70, 0.27, 1.62],
+    ['them-9', 2, 0.47, 0.38, 1.40, 0.50, 0.38, 1.52],
+    ['them-9', 2, 0.58, 0.52, 1.12, 0.58, 0.48, 1.22],
+    ['them-10', 2, 0.48, 0.37, 1.00, 0.48, 0.34, 1.06],
+    ['them-10', 2, 0.48, 0.29, 1.42, 0.48, 0.29, 1.55],
+    ['them-10', 4, 0.50, 0.46, 1.15, 0.50, 0.50, 1.28],
+    ['them-8', 2, 0.42, 0.31, 1.50, 0.42, 0.31, 1.62],
+    ['them-8', 2, 0.46, 0.46, 1.10, 0.46, 0.50, 1.20],
+    ['them-8', 4, 0.50, 0.66, 1.00, 0.50, 0.60, 1.10],
+    ['them-7', 4, 0.50, 0.50, 1.00, 0.60, 0.52, 1.12],
+    ['them-7', 4, 0.64, 0.53, 1.55, 0.66, 0.52, 1.75],
+    ['them-7', 4, 0.62, 0.52, 1.20, 0.50, 0.50, 1.00]] },
   { type: 'finale', p: 'them-1', s: 70, e: null, tin: ['bloom', 3] },
 ];
 for (const s of SC) {
@@ -312,13 +328,12 @@ function drawPanels(ctx, s, lt, dur) {
 function drawMontage(ctx, s, lt) {
   let acc = 0, k = 0;
   while (k < s.slots.length - 1 && lt >= acc + s.slots[k][1] * BEAT) { acc += s.slots[k][1] * BEAT; k++; }
-  const [name, beats, zx = 0] = s.slots[k], len = beats * BEAT, ls = lt - acc;
-  const ph = P[name], land = ph.img.naturalWidth > ph.img.naturalHeight;
-  const punch = 0.08 * Math.exp(-Math.max(0, ls) * 3.2);
-  const z = 1.03 + zx + punch + 0.04 * clamp(ls / len);
-  drawCover(ctx, ph, 0, 0, W, H, ph.fx, land ? ph.fy : ph.fy + 0.1, z);
+  const [name, beats, x0, y0, z0, x1, y1, z1] = s.slots[k], len = beats * BEAT, ls = lt - acc;
+  const u = clamp(ls / len), c = u * (2 - u) * 0.35 + u * 0.65; // đi đều, hơi chậm lại ở cuối
+  const punch = 0.06 * Math.exp(-Math.max(0, ls) * 3.2);
+  drawCover(ctx, P[name], 0, 0, W, H, lerp(x0, x1, c), lerp(y0, y1, c), lerp(z0, z1, c) + punch);
   if (k > 0 && ls >= 0) {
-    const fl = (k % 2 ? 0.22 : 0.4) * Math.exp(-ls * 8);
+    const fl = (k % 2 ? 0.2 : 0.36) * Math.exp(-ls * 8);
     ctx.fillStyle = `rgba(255,247,232,${fl})`; ctx.fillRect(0, 0, W, H);
   }
 }
