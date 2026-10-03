@@ -251,10 +251,10 @@ const SC = [
   // 2:29–2:40: mỗi 2 phách một ảnh đôi, gom theo chủ đề (studio trắng → kem → quân phục → áo truyền thống → vườn).
   // Khung đồng bộ: cặp đôi giữa khung, gương mặt luôn ở 30% chiều cao từ trên xuống. Ô: [ảnh, phách, tâm x cặp đôi, y gương mặt, zoom]
   { type: 'montage', s: 59, e: 63, tin: ['blurDissolve', 2], xf: 0.3, slots: [
-    ['trang-2', 2, 0.47, 0.24, 1.0], ['them-10', 2, 0.43, 0.285, 1.0],
-    ['them-6', 2, 0.44, 0.285, 1.0], ['nguoi-linh-3', 2, 0.44, 0.23, 1.0],
-    ['them-5', 2, 0.44, 0.27, 1.0], ['net-xua', 2, 0.51, 0.30, 1.0],
-    ['vuon-2', 2, 0.47, 0.51, 1.0], ['vuon-1', 2, 0.60, 0.53, 1.0]] },
+    ['trang-2', 2, 0.45, 0.27, 1.0], ['them-10', 2, 0.44, 0.30, 1.0],
+    ['them-6', 2, 0.42, 0.28, 1.0], ['nguoi-linh-3', 2, 0.44, 0.25, 1.0],
+    ['them-5', 2, 0.435, 0.295, 1.0], ['net-xua', 2, 0.48, 0.375, 1.0],
+    ['vuon-2', 2, 0.47, 0.50, 1.0], ['vuon-1', 2, 0.62, 0.48, 1.0]] },
   // Từ 2:40: toàn cảnh vườn nắng kể nốt câu chuyện — lời thề → ôm trong khăn voan → nụ hôn → hoàng hôn.
   { type: 'kb', p: 'nang-1', s: 63, e: 66, tin: ['leak', 2], c0: [0.5, 0.56], c1: [0.5, 0.48], z0: 1.0, z1: 1.12 },
   { type: 'kb', p: 'them-7', s: 66, e: 69, tin: ['blurDissolve', 3], c0: [0.5, 0.5], c1: [0.62, 0.46], z0: 1.0, z1: 1.12 },
@@ -320,10 +320,25 @@ function drawPanels(ctx, s, lt, dur) {
 function montageShot(ctx, s, k, ls) {
   const [name, beats, cx, fy, cz] = s.slots[k], ph = P[name], len = beats * BEAT;
   const u = clamp((ls + s.xf) / (len + 2 * s.xf));
-  if (cz) { // khung căn giữa cặp đôi: đẩy máy rất nhẹ, gương mặt giữ ở 30% chiều cao khung
+  if (cz) { // khung căn giữa cặp đôi, không phóng to: dịch ảnh ngang cho cặp đôi vào giữa,
+    // phần mép hở được lấp bằng chính ảnh đó nhoè mờ, chuyển tiếp mềm nên không thấy đường nối.
     const z = lerp(cz, cz * 1.03, u), iw = ph.img.naturalWidth, ih = ph.img.naturalHeight;
-    const vh = H / (Math.max(W / iw, H / ih) * z * ih);
-    drawCover(ctx, ph, 0, 0, W, H, cx, fy + 0.2 * vh, z);
+    const sc = Math.max(W / iw, H / ih) * z, vw = W / (sc * iw), vh = H / (sc * ih);
+    const cy = fy + 0.2 * vh, ccx = clamp(cx, vw / 2, 1 - vw / 2), dx = (ccx - cx) * iw * sc;
+    if (Math.abs(dx) < 1) { drawCover(ctx, ph, 0, 0, W, H, ccx, cy, z); return; }
+    const L = SHOT[k % 2], x = L.ctx;
+    drawCover(x, ph, 0, 0, W, H, cx, cy, z * 1.15);
+    x.drawImage(blurOf(L, 14, 'mbg'), 0, 0, W, H);
+    const sh = SHARP.ctx;
+    sh.globalCompositeOperation = 'copy'; sh.fillStyle = 'rgba(0,0,0,0)'; sh.fillRect(0, 0, W, H);
+    sh.globalCompositeOperation = 'source-over';
+    drawCover(sh, ph, dx, 0, W, H, ccx, cy, z);
+    sh.globalCompositeOperation = 'destination-in';
+    const e = dx > 0 ? dx : W + dx, f = 140, g = sh.createLinearGradient(dx > 0 ? e : e, 0, dx > 0 ? e + f : e - f, 0);
+    g.addColorStop(0, 'rgba(0,0,0,0)'); g.addColorStop(1, 'rgba(0,0,0,1)');
+    sh.fillStyle = g; sh.fillRect(0, 0, W, H); sh.globalCompositeOperation = 'source-over';
+    x.drawImage(SHARP, 0, 0);
+    ctx.drawImage(L, 0, 0);
     return;
   }
   const land = ph.img.naturalWidth > ph.img.naturalHeight, dir = k % 2 ? 1 : -1;
@@ -504,7 +519,7 @@ function composite(ctx, A, B, p, type) {
 // ---------------------------------------------------------------- khung hình
 const C = document.getElementById('c'), CTX = C.getContext('2d');
 CTX.imageSmoothingQuality = 'high';
-let BUF_A, BUF_B;
+let BUF_A, BUF_B, SHARP, SHOT;
 
 function dustLevel(t) {
   if (t < bar(5)) return 1.0;
@@ -558,7 +573,7 @@ async function init() {
     const img = new Image(); img.src = `anh/${name}.jpg`; await img.decode();
     P[name] = { img, fx, fy };
   }));
-  BUF_A = mk(W, H); BUF_B = mk(W, H); MK = mk(W, H);
+  BUF_A = mk(W, H); BUF_B = mk(W, H); MK = mk(W, H); SHARP = mk(W, H); SHOT = [mk(W, H), mk(W, H)];
   buildFx(); buildText();
   window.READY = true;
   const hint = document.getElementById('hint');
