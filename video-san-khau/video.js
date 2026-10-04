@@ -232,7 +232,7 @@ function blurOf(src, px, slot) {
 const SC = [
   { type: 'intro', s: 0, e: 5 },
   { type: 'panels', ps: ['chu-re', 'co-dau'], s: 5, e: 9, tin: ['bloom', 2], chapter: ['CHƯƠNG I', 'Khởi đầu'] },
-  { type: 'tilt', p: 'them-5', s: 9, e: 13, tin: ['softWipe', 2], cap: ['Ba năm trước, Việt Anh và Vi tìm thấy nhau'] },
+  { type: 'tilt', p: 'them-5', s: 9, e: 13, tin: ['softWipe', 2], cap: ['Ba năm trước chúng mình đã tình cờ tìm thấy nhau'] },
   { type: 'panels', ps: ['nguoi-linh-1', 'nguoi-linh-2', 'nguoi-linh-3'], s: 13, e: 18, tin: ['blurDissolve', 2],
     cap: ['Có những ngày thật đẹp, và cả những ngày không vui'] },
   { type: 'panels', ps: ['trang-2', 'trang-3'], s: 18, e: 22, tin: ['push', 1.5], cap: ['…nhưng chúng mình chưa từng buông tay'] },

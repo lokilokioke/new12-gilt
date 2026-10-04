@@ -8,8 +8,8 @@ Cách ghép lại thành 1 file:
   1. Tải TOÀN BỘ thư mục ban-san-khau về máy (đủ 7 file .part).
   2. Windows: bấm đúp GHEP-VIDEO-WINDOWS.bat
      Mac: bấm chuột phải ghep-video-mac.command → Open
-  3. Nhận được file Video-Le-Thanh-Hon-San-Khau-1080p.mp4 (625.151.062 byte).
-     Mã kiểm tra MD5: 0057cbff4b8dde35ee934c1658a08910
+  3. Nhận được file Video-Le-Thanh-Hon-San-Khau-1080p.mp4 (625.138.897 byte).
+     Mã kiểm tra MD5: 673318b4a5c1bf050be0db76349acdc7
 
 Lưu ý khi chiếu:
   - Copy file vào máy tính/USB và phát trực tiếp (VLC, Windows Media Player, phần mềm của đơn vị
