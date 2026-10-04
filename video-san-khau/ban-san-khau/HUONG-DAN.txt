@@ -1,0 +1,18 @@
+VIDEO TRÌNH CHIẾU SÂN KHẤU — BẢN CHẤT LƯỢNG CAO (1080p, ~24 Mbps, 625 MB)
+
+Dùng bản này để chiếu trên màn LED / máy chiếu / TV lớn tại tiệc cưới.
+(Bản video-le-thanh-hon-1080p.mp4 ở thư mục trên là bản nhẹ, dùng cho YouTube/Facebook.)
+
+Video được chia thành 7 phần (.part00 → .part06) vì GitHub giới hạn 100 MB mỗi file.
+Cách ghép lại thành 1 file:
+  1. Tải TOÀN BỘ thư mục ban-san-khau về máy (đủ 7 file .part).
+  2. Windows: bấm đúp GHEP-VIDEO-WINDOWS.bat
+     Mac: bấm chuột phải ghep-video-mac.command → Open
+  3. Nhận được file Video-Le-Thanh-Hon-San-Khau-1080p.mp4 (625.151.062 byte).
+     Mã kiểm tra MD5: 0057cbff4b8dde35ee934c1658a08910
+
+Lưu ý khi chiếu:
+  - Copy file vào máy tính/USB và phát trực tiếp (VLC, Windows Media Player, phần mềm của đơn vị
+    LED). Không phát từ YouTube/Google Drive xem trực tuyến vì sẽ bị nén lại.
+  - Chiếu đúng độ phân giải 1920×1080, tắt "zoom/overscan" trên máy chiếu/TV để không bị cắt mép.
+  - Chạy thử 1 lần trước giờ tiệc trên đúng màn hình và loa của hội trường.

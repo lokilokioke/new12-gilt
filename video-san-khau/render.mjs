@@ -1,4 +1,6 @@
 // Xuất video: node render.mjs            -> video-le-thanh-hon-1080p.mp4
+// Bản trình chiếu sân khấu (bitrate cao, cho màn LED/máy chiếu lớn):
+//   node render.mjs --crf 14 --tune grain --maxrate 30M --out video-le-thanh-hon-1080p-san-khau.mp4
 // Chụp thử vài khung: node render.mjs --stills 3,14,40 [--out thu-muc]
 import { createRequire } from 'module';
 import http from 'http';
@@ -87,7 +89,8 @@ fs.writeFileSync(path.join(tmp, 'list.txt'), segs.map(s => `file '${s}'`).join('
 console.log('Ghép hình + nhạc…');
 const r = spawnSync('ffmpeg', ['-v', 'error', '-y', '-f', 'concat', '-safe', '0', '-i', path.join(tmp, 'list.txt'),
   '-i', path.join(ROOT, 'nhac.mp3'), '-map', '0:v', '-map', '1:a',
-  '-c:v', 'libx264', '-preset', 'slow', '-crf', opt('crf', '19'), '-tune', 'film', '-pix_fmt', 'yuv420p',
+  '-c:v', 'libx264', '-preset', 'slow', '-crf', opt('crf', '19'), '-tune', opt('tune', 'film'), '-pix_fmt', 'yuv420p',
+  ...(opt('maxrate') ? ['-maxrate', opt('maxrate'), '-bufsize', String(parseInt(opt('maxrate')) * 2) + 'M'] : []),
   '-profile:v', 'high', '-level', '4.1', '-r', String(FPS),
   '-af', `afade=t=out:st=${(END - 3).toFixed(2)}:d=3`, '-c:a', 'aac', '-b:a', '256k',
   '-t', END.toFixed(3), '-movflags', '+faststart', OUT], { stdio: 'inherit' });
